@@ -1,0 +1,19 @@
+.logoImage {
+  width: 200px;
+  height: 62px;
+  padding: 4px 10px 4px 0px;
+  gap: 10px;
+  background: none;
+}
+.menuImage {
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  gap: 10px;
+  margin: auto;
+  background: #ffffff;
+   border-radius: 13px;
+}
+.navbar {
+  background-color: #D5F9FF;
+}
