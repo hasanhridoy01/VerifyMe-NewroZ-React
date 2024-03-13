@@ -1,8 +1,0 @@
-.homeBanner{
-    background-color: #d5f9ff;
-    display: grid;  
-    grid-template-columns: repeat(1, 1fr);
-    height: 600px;
-    width: 100%;
-    margin: auto;
-}

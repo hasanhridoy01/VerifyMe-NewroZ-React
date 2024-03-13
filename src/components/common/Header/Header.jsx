@@ -11,7 +11,18 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import './Header.css'
+import "./Header.css";
+import { useMediaQuery } from "@mui/material";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import MailIcon from "@mui/icons-material/Mail";
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 
 const Header = () => {
   const pages = ["Solutions", "Industries", "Pricing", "Contact Us"];
@@ -35,8 +46,59 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+  const isXs = useMediaQuery("(max-width:600px)");
+
+  const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
+  };
+
+  const DrawerList = (
+    <Box
+      sx={{ width: 250, backgroundColor: "#E7FFFD" }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+    >
+      <List>
+        {["Home", "Solutions", "Industries", "Pricing", "Contact Us"].map(
+          (text, index) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          )
+        )}
+      </List>
+      <Tooltip title="Open settings">
+        <Button
+          variant="outlined" size="large"
+          onClick={handleOpenUserMenu}
+          startIcon={<PermIdentityIcon />}
+          sx={{
+            background: "#F7FFFD",
+            marginBottom: "10px",
+            color: "#2d6363",
+            marginTop: '20px',
+            marginLeft: "20px"
+          }}
+        >
+          Account
+        </Button>
+      </Tooltip>
+    </Box>
+  );
+
   return (
-    <AppBar position="static">
+    <AppBar
+      position="fixed"
+      elevation={0}
+      style={{ padding: "15px 10px 10px 10px", background: "none" }}
+    >
       <Container maxWidth="xl" className="navbar">
         <Toolbar disableGutters>
           <Typography
@@ -54,7 +116,11 @@ const Header = () => {
               textDecoration: "none",
             }}
           >
-            <img src="../../../../public/images/header/Logo.png" alt="" className="logoImage"/>
+            <img
+              src="../../../../public/images/header/Logo.png"
+              alt=""
+              className="logoImage"
+            />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -63,12 +129,17 @@ const Header = () => {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={toggleDrawer(true)}
               color="black"
             >
               <MenuIcon />
             </IconButton>
-            <Menu
+
+            <Drawer open={open} onClose={toggleDrawer(false)}>
+              {DrawerList}
+            </Drawer>
+
+            {/* <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -91,7 +162,7 @@ const Header = () => {
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
-            </Menu>
+            </Menu> */}
           </Box>
           <Typography
             variant="h5"
@@ -109,19 +180,35 @@ const Header = () => {
               textDecoration: "none",
             }}
           >
-           <img src="../../../../public/images/header/Logo.png" alt="" className="logoImage" />
+            <img
+              src="../../../../public/images/header/Logo.png"
+              alt=""
+              className="logoImageSmall"
+            />
           </Typography>
-          <Box sx={{ m: "auto", display: { xs: "none", md: "flex", } }}>
-            <img src="../../../../public/images/header/group.png" alt="" className="menuImage" />
+          <Box sx={{ m: "auto", display: { xs: "none", md: "flex" } }}>
+            <img
+              src="../../../../public/images/header/group.png"
+              alt=""
+              className="menuImage"
+            />
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, mx: 2, color: "#000", padding: '10px', fontWeight: 700, display: "block", ":hover": {
+                sx={{
+                  my: 2,
+                  mx: 2,
+                  color: "#000",
+                  padding: "10px",
+                  fontWeight: 700,
+                  display: "block",
+                  ":hover": {
                     color: "#000",
-                    backgroundColor: "#ffffff", 
-                    borderRadius: "19px"
-                  }, }}
+                    backgroundColor: "#ffffff",
+                    borderRadius: "19px",
+                  },
+                }}
               >
                 {page}
               </Button>
@@ -130,8 +217,14 @@ const Header = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, background: '#ffffff' }}>
-                <Avatar alt="Remy Sharp" src="../../../../public/images/header/Frame 48095401.png" />
+              <IconButton
+                onClick={handleOpenUserMenu}
+                sx={{ p: 0, background: "#ffffff" }}
+              >
+                <Avatar
+                  alt="Remy Sharp"
+                  src="../../../../public/images/header/Frame 48095401.png"
+                />
               </IconButton>
             </Tooltip>
             <Menu

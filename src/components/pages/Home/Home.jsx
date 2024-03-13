@@ -1,13 +1,15 @@
-import React from 'react';
-import './Home.css'
-import HomeBanner from '../../common/HomeBanner/HomeBanner';
+import "./Home.css";
+import HomeBanner from "../../common/HomeBanner/HomeBanner";
+import { Container } from "@mui/material";
 
 const Home = () => {
-    return (
-        <div>
-            <HomeBanner></HomeBanner>
-        </div>
-    );
+  return (
+    <div>
+      <Container>
+        <HomeBanner></HomeBanner>
+      </Container>
+    </div>
+  );
 };
 
 export default Home;

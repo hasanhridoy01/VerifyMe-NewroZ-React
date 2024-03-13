@@ -4,7 +4,7 @@ import "./Main.css";
 
 const Main = () => {
   return (
-    <div style={{ padding: "15px 10px 10px 10px" }}>
+    <div>
       <Header></Header>
       <Outlet></Outlet>
     </div>
