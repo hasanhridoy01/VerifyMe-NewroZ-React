@@ -4,11 +4,12 @@ import { Container } from "@mui/material";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <Container>
         <HomeBanner></HomeBanner>
       </Container>
-    </div>
+      
+    </>
   );
 };
 
