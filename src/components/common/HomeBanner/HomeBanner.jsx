@@ -15,7 +15,7 @@ const HomeBanner = () => {
           verification. Utilizing cutting-edge tech, ensure compliance and
           elevate onboarding.
         </Typography>
-        <Button variant="contained" size="large" sx={{borderRadius: "20px", background: "#016363", textAlign: "center", marginTop: '10px', padding: '10px 20px 10px 20px'}}>
+        <Button variant="contained" size="large" sx={{borderRadius: "20px", background: "#016363", textAlign: "center", marginTop: '20px', padding: '10px 20px 10px 20px'}}>
           Let's Get Your ID
         </Button>
       </Grid>

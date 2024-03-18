@@ -1,3 +1,24 @@
-body{
-    background: #E7FFFD;
+body {
+  background: #e7fffd;
+}
+.eKYC {
+  font-family: "Exo 2", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 43px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.KYC-Description {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.KYC-Image-Right {
+  height: 456.04px;
+  left: 233.63px;
+  border: 0.9433294534683228;
 }
