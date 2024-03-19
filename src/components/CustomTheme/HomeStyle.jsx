@@ -27,19 +27,8 @@ export const customBox = {
     background: "#d9f1f1",
     height: "270px",
     padding: "30px",
-    paddingBottom: "0px",
-    paddingTop: "0px",
-    gap: "0px",
     borderRadius: "2px",
     border: "1px solid #BFE8E8",
-    marginBottom: '0px',
-    display: 'flex',
-    flexDuration: 'column',
-    justifyContent: 'space-between',
-  },
-  images: {
-    height: "51px",
-    window: '51px'
   },
   boxStyleTwo: {
     background: "#d9f1f1",

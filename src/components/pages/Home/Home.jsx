@@ -120,7 +120,15 @@ const Home = () => {
       </Container>
 
       <Container sx={{ marginTop: "100px" }}>
-        <Grid container justifyContent="left" lg={12} mb={12} sm={12} xm={12} sx={{marginBottom: '20px'}}>
+        <Grid
+          container
+          justifyContent="left"
+          lg={12}
+          mb={12}
+          sm={12}
+          xm={12}
+          sx={{ marginBottom: "20px" }}
+        >
           <Typography
             variant="h4"
             gutterBottom
@@ -131,7 +139,7 @@ const Home = () => {
           <Typography
             variant="h6"
             gutterBottom
-            sx={{ fontFamily: "'Roboto', sans-serif", color: 'gray' }}
+            sx={{ fontFamily: "'Roboto', sans-serif", color: "gray" }}
           >
             Achieve compliance, reduce fraud and build customer trust across all
             industries around the world.
@@ -139,26 +147,98 @@ const Home = () => {
         </Grid>
 
         <Grid container spacing={2} justifyContent="center" alignItems="center">
-          <Grid item lg={3} sm={6} xs={12} sx={{ mb: 4 }}>
+          <Grid spacing={0} item lg={3} sm={6} xs={12}>
             <Box sx={customBox.boxStyleOne}>
-              {/* <img className="images" src="../../../../public/images/industry/ICO.png" alt="" />
-              <Typography variant="h6" textAlign='left'>Banking</Typography>
-              <p>Keep pace and remain compliant with evolving KYC regulations.</p>
-              <p>Learn more</p> */}
+              <img
+                className="images"
+                src="../../../../public/images/industry/ICO.png"
+                alt=""
+              />
+              <Typography
+                variant="h6"
+                textAlign="left"
+                sx={{ marginTop: "10px" }}
+              >
+                Banking
+              </Typography>
+              <p style={{ marginTop: "10px" }}>
+                Keep pace and remain compliant with evolving KYC regulations.
+              </p>
+              <p style={{ marginTop: "34px" }}>Learn more</p>
             </Box>
           </Grid>
-          <Grid item lg={3} sm={6} xs={12} sx={{ mb: 4 }}>
-            <Box sx={customBox.boxStyleOne}></Box>
+          <Grid spacing={0} item lg={3} sm={6} xs={12}>
+            <Box sx={customBox.boxStyleOne}>
+              <img
+                className="images"
+                src="../../../../public/images/industry/ICO (1).png"
+                alt=""
+              />
+              <Typography
+                variant="h6"
+                textAlign="left"
+                sx={{ marginTop: "10px" }}
+              >
+                Cryptocurrency
+              </Typography>
+              <p style={{ marginTop: "10px" }}>
+                Meet customer expectations for fast, secure onboarding in a
+                rapidly changing industry.
+              </p>
+              <p style={{ marginTop: "20px" }}>Learn more</p>
+            </Box>
           </Grid>
-          <Grid item lg={3} sm={6} xs={12} sx={{ mb: 4 }}>
-            <Box sx={customBox.boxStyleOne}></Box>
+          <Grid spacing={0} item lg={3} sm={6} xs={12}>
+            <Box sx={customBox.boxStyleOne}>
+              <img
+                className="images"
+                src="../../../../public/images/industry/ICO (2).png"
+                alt=""
+              />
+              <Typography
+                variant="h6"
+                textAlign="left"
+                sx={{ marginTop: "10px" }}
+              >
+                Foreign Exchange
+              </Typography>
+              <p style={{ marginTop: "10px" }}>
+                Achieve KYC compliance that transcends borders and helps you
+                defend.
+              </p>
+              <p style={{ marginTop: "20px" }}>Learn more</p>
+            </Box>
           </Grid>
-          <Grid item lg={3} sm={6} xs={12} sx={{ mb: 4 }}>
-            <Box sx={customBox.boxStyleOne}></Box>
+          <Grid spacing={0} item lg={3} sm={6} xs={12}>
+            <Box sx={customBox.boxStyleOne}>
+              <img
+                className="images"
+                src="../../../../public/images/industry/ICO (3).png"
+                alt=""
+              />
+              <Typography
+                variant="h6"
+                textAlign="left"
+                sx={{ marginTop: "10px" }}
+              >
+                Marketplaces
+              </Typography>
+              <p style={{ marginTop: "10px" }}>
+                Create a trusted ecosystem with verified vendors and customers
+                to gain a competitive advantage.
+              </p>
+              <p style={{ marginTop: "20px" }}>Learn more</p>
+            </Box>
           </Grid>
         </Grid>
 
-        <Grid container spacing={2} justifyContent="center" alignItems="center" sx={{marginTop: '0px'}}>
+        <Grid
+          container
+          spacing={2}
+          justifyContent="center"
+          alignItems="center"
+          sx={{ marginTop: "0px" }}
+        >
           <Grid item lg={4} sm={8} xs={12} sx={{ mb: 4 }}>
             <Box sx={customBox.boxStyleTwo}></Box>
           </Grid>
