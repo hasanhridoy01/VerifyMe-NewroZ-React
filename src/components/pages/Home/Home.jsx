@@ -240,13 +240,66 @@ const Home = () => {
           sx={{ marginTop: "0px" }}
         >
           <Grid item lg={4} sm={8} xs={12} sx={{ mb: 4 }}>
-            <Box sx={customBox.boxStyleTwo}></Box>
+            <Box sx={customBox.boxStyleTwo}>
+              <img
+                className="images"
+                src="../../../../public/images/industry/Group 13410.png"
+                alt=""
+              />
+              <Typography
+                variant="h6"
+                textAlign="left"
+                sx={{ marginTop: "20px" }}
+              >
+                Online Trading
+              </Typography>
+              <p style={{ marginTop: "10px" }}>
+                Provide a fast, smooth customer experience while meeting
+                extensive compliance obligations worldwide.
+              </p>
+              <p style={{ marginTop: "20px" }}>Learn more</p>
+            </Box>
           </Grid>
           <Grid item lg={4} sm={8} xs={12} sx={{ mb: 4 }}>
-            <Box sx={customBox.boxStyleTwo}></Box>
+            <Box sx={customBox.boxStyleTwo}>
+              <img
+                className="images"
+                src="../../../../public/images/industry/db.png"
+                alt=""
+              />
+              <Typography
+                variant="h6"
+                textAlign="left"
+                sx={{ marginTop: "10px" }}
+              >
+                Payment Service Providers
+              </Typography>
+              <p style={{ marginTop: "10px" }}>
+                Deliver comprehensive identity verification that protects your
+                payments business and customers.
+              </p>
+              <p style={{ marginTop: "20px" }}>Learn more</p>
+            </Box>
           </Grid>
           <Grid item lg={4} sm={8} xs={12} sx={{ mb: 4 }}>
-            <Box sx={customBox.boxStyleTwo}></Box>
+            <Box sx={customBox.boxStyleTwo}>
+              <img
+                className="images"
+                src="../../../../public/images/industry/Group 13417.png"
+                alt=""
+              />
+              <Typography
+                variant="h6"
+                textAlign="left"
+                sx={{ marginTop: "10px" }}
+              >
+                Wealth Management
+              </Typography>
+              <p style={{ marginTop: "10px" }}>
+                Keep pace and remain compliant with evolving KYC regulations.
+              </p>
+              <p style={{ marginTop: "20px" }}>Learn more</p>
+            </Box>
           </Grid>
         </Grid>
       </Container>

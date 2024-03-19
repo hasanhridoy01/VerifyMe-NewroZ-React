@@ -1,3 +1,5 @@
+import { Scale } from "@mui/icons-material";
+
 export const customButton = {
   btnStyleOne: {
     width: "250px",
@@ -29,15 +31,22 @@ export const customBox = {
     padding: "30px",
     borderRadius: "2px",
     border: "1px solid #BFE8E8",
+    transition: '0.4s',
+    cursor: 'pointer',
+    ":hover": {
+      transform: 'scale(1.03)',
+    },
   },
   boxStyleTwo: {
     background: "#d9f1f1",
     height: "270px",
     padding: "30px",
-    paddingTop: '0px',
-    gap: "0px",
     borderRadius: "2px",
     border: "1px solid #BFE8E8",
-    marginTop: '0px',
+    transition: '0.4s',
+    cursor: 'pointer',
+    ":hover": {
+      transform: 'scale(1.03)',
+    },
   },
 };
