@@ -303,6 +303,110 @@ const Home = () => {
           </Grid>
         </Grid>
       </Container>
+
+      <Container sx={{ marginTop: "150px" }}>
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{ fontFamily: "'Exo 2', sans-serif" }}
+        >
+          A True Impact of Fully-Verified KYC platform
+        </Typography>
+        <p
+          style={{
+            color: "gray",
+            justifyContent: "center",
+            marginBottom: "50px",
+          }}
+        >
+          The KYC platform revolutionizes customer verification with
+          cutting-edge technology, ensuring seamless, secure, and compliant
+          processes. Eliminating manual checks, it enables remote verification,
+          boosts operational efficiency, and builds trust. This innovative
+          platform sets a new standard, transforming businesses for a
+          streamlined and secure future.
+        </p>
+        <Grid
+          container
+          spacing={2}
+          justifyContent="center"
+          alignItems="center"
+          p={5}
+          sx={{ background: "#d9f1f1", marginBottom: "100px" }}
+        >
+          <Grid item lg={4} md={6} sm={12} xs={12} p={5}>
+            <Box>
+              <Typography
+                variant="h2"
+                gutterBottom
+                sx={{ fontFamily: "'Exo 2', sans-serif" }}
+              >
+                26%
+              </Typography>
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{ fontFamily: '"Roboto", sans-serif' }}
+              >
+                Pass Rate Improvement
+              </Typography>
+              <p style={{ color: "gray", fontFamily: '"Roboto", sans-serif' }}>
+                We ensure a higher customer onboarding rate by 26% with minimum
+                false positives. Our solution helps companies identify potential
+                fraud while still allowing legitimate customers to be onboarded
+                quickly & easily.
+              </p>
+            </Box>
+          </Grid>
+          <Grid item lg={4} md={6} sm={12} xs={12} p={5}>
+            <Box>
+              <Typography
+                variant="h2"
+                gutterBottom
+                sx={{ fontFamily: "'Exo 2', sans-serif" }}
+              >
+                46%
+              </Typography>
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{ fontFamily: '"Roboto", sans-serif' }}
+              >
+                Audited Cost Reduction
+              </Typography>
+              <p style={{ color: "gray", fontFamily: '"Roboto", sans-serif' }}>
+                Fully-Verified reduces the cost of each verification by an
+                impressive 46%, helping businesses save money while maintaining
+                the highest standards of identity verification.
+              </p>
+            </Box>
+          </Grid>
+          <Grid item lg={4} md={6} sm={12} xs={12} p={5}>
+            <Box>
+              <Typography
+                variant="h2"
+                gutterBottom
+                sx={{ fontFamily: "'Exo 2', sans-serif" }}
+              >
+                76%
+              </Typography>
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{ fontFamily: '"Roboto", sans-serif' }}
+              >
+                Onboarding speed improvement
+              </Typography>
+              <p style={{ color: "gray", fontFamily: '"Roboto", sans-serif' }}>
+                Whether you're a business seeking to streamline customer
+                registration or an individual eager to join a platform
+                hassle-free, our solution ensures a seamless and efficient
+                experience.
+              </p>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 };
