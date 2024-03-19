@@ -407,6 +407,261 @@ const Home = () => {
           </Grid>
         </Grid>
       </Container>
+
+      <Container sx={{ marginTop: "150px", marginBottom: "100px" }}>
+        <Grid spacing={5} container justifyContent="center" alignItems="center">
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Stack>
+              <Typography variant="h5" gutterBottom>
+                4 things that makes us stand out:
+              </Typography>
+              <p style={{ color: "gray" }}>
+                KYC verification operates through sophisticated technology and
+                data analysis, guaranteeing customer identity authentication,
+                regulatory adherence, and heightened onboarding process
+                security.
+              </p>
+              <Box
+                sx={{
+                  background: "#D9F1F1",
+                  margin: "20px 0px 10px 0px",
+                  padding: "10px",
+                  width: "400px",
+                }}
+              >
+                <Typography variant="h6" gutterBottom>
+                  1. An Exceptional Customer Care
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  margin: "5px 0px 0px 0px",
+                  padding: "10px",
+                  width: "500px",
+                }}
+              >
+                <Typography variant="h6" gutterBottom>
+                  2. Startup-friendly pricing
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  margin: "5px 0px 0px 0px",
+                  padding: "10px",
+                  width: "500px",
+                }}
+              >
+                <Typography variant="h6" gutterBottom>
+                  3. Highest security
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  margin: "5px 0px 0px 0px",
+                  padding: "10px",
+                  width: "500px",
+                }}
+              >
+                <Typography variant="h6" gutterBottom>
+                  4. User-friendly verification
+                </Typography>
+              </Box>
+            </Stack>
+          </Grid>
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Stack>
+              <Typography
+                variant="h6"
+                gutterBottom
+                textAlign="left"
+                width="80%"
+              >
+                Experience excellence with 4.5 Customer Satisfaction Score.​
+              </Typography>
+              <Typography textAlign="left">
+                Our commitment to quality and compliance allows our clients to
+                run their businesses confidently. With a 4.5 customer
+                satisfaction score, verifications double-check process,
+                30-second response time, and significant pass rate improvements,
+                Fully-Verified is the trusted partner for businesses seeking
+                exceptional KYC verification services while maintaining the
+                lowest cost possible.
+              </Typography>
+            </Stack>
+          </Grid>
+        </Grid>
+      </Container>
+
+      <Container sx={{ marginTop: "200px", marginBottom: "100px" }}>
+        <Grid container justifyContent="center" alignItems="center">
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Stack>
+              <Typography variant="h5" gutterBottom>
+                Focused on your business growth
+              </Typography>
+              <p style={{ color: "gray" }}>
+                KYC verification operates through sophisticated technology and
+                data analysis, guaranteeing customer identity authentication,
+                regulatory adherence, and heightened onboarding process
+                security.
+              </p>
+              <Box className="box" sx={{ marginTop: "10px" }}>
+                1. Conversion optimised
+              </Box>
+              <Box className="box">
+                2. Compliance with the strictest regulations
+              </Box>
+              <Box className="box">3. Fully customizable</Box>
+              <Box className="box">4. AI-powered fraud prevention</Box>
+            </Stack>
+            <Stack mt={5}>
+              <Typography variant="h5" gutterBottom>
+                Focused on your customers satisfaction
+              </Typography>
+              <p style={{ color: "gray" }}>
+                KYC verification operates through sophisticated technology and
+                data analysis, guaranteeing customer identity authentication,
+                regulatory adherence, and heightened onboarding process
+                security.
+              </p>
+              <Box className="box" sx={{ marginTop: "10px" }}>
+                1. Seamless onboarding experience
+              </Box>
+              <Box className="box">
+                2. Availible anytime, anywhere on all devices
+              </Box>
+              <Box className="box">3. AI-guided verification process</Box>
+              <Box className="box">4. Verification in a matter of secods</Box>
+            </Stack>
+          </Grid>
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+            <Box>
+              <img src="../../../../public/images/focused/Phone.png" alt="" />
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+
+      <Container sx={{ marginTop: "200px", marginBottom: "100px" }}>
+        <Grid spacing={2} container justifyContent="center" alignItems="center">
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <Stack>
+              <Typography variant="h4" gutterBottom>
+                OUR PRODUCTS
+              </Typography>
+              <p style={{ color: "gray" }}>
+                VerifyMe KYC Verification application is a digital tool designed
+                to streamline and enhance the customer onboarding process for
+                businesses and financial institutions. KYC is a critical
+                procedure mandated by regulatory authorities to verify the
+                identity and assess the risk associated with potential customers
+                or clients before engaging in any business relationship with
+                them.
+              </p>
+            </Stack>
+          </Grid>
+        </Grid>
+        <Grid container spacing={2}>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            <Box className="Pbox">
+              <div className="pTop-Content">
+                <img
+                  src="../../../../public/images/OurProduct/Ico.png"
+                  alt=""
+                />
+                <Typography
+                  variant="h5"
+                  gutterBottom
+                  sx={{
+                    marginLeft: "20px",
+                    marginBottom: "0px",
+                    fontWeight: "700",
+                  }}
+                >
+                  Auto-Verify
+                </Typography>
+              </div>
+              <Stack spacing={3} mt={3} p={2}>
+                <Typography variant="h6" gutterBottom>
+                  Automatically verify users from all over the world in matter
+                  of seconds:
+                </Typography>
+                <p>
+                  Verify identities, conduct risk assessments, and perform due
+                  diligence checks in just 10 seconds, while reducing
+                  operational expenses by up to 46%.
+                </p>
+                <p>Learn more</p>
+              </Stack>
+            </Box>
+          </Grid>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            <Box className="Pbox">
+              <div className="pTop-Content">
+                <img
+                  src="../../../../public/images/OurProduct/Ico (1).png"
+                  alt=""
+                />
+                <Typography
+                  variant="h5"
+                  gutterBottom
+                  sx={{
+                    marginLeft: "20px",
+                    marginBottom: "0px",
+                    fontWeight: "700",
+                  }}
+                >
+                  Self-Verify
+                </Typography>
+              </div>
+              <Stack spacing={3} mt={3} p={2}>
+                <Typography variant="h6" gutterBottom>
+                  The Ultimate KYC Solution with Full Live Video Recording:
+                </Typography>
+                <p>
+                  Eliminate risk of cybercrimes, financial crimes and money
+                  laundering with a Fully-Verified identity verification tools.
+                  ​
+                </p>
+                <p>Learn more</p>
+              </Stack>
+            </Box>
+          </Grid>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            <Box className="Pbox">
+              <div className="pTop-Content">
+                <img
+                  src="../../../../public/images/OurProduct/Ico (2).png"
+                  alt=""
+                />
+                <Typography
+                  variant="h5"
+                  gutterBottom
+                  sx={{
+                    marginLeft: "20px",
+                    marginBottom: "0px",
+                    fontWeight: "700",
+                  }}
+                >
+                  Live-Verify
+                </Typography>
+              </div>
+              <Stack spacing={3} mt={3} p={2}>
+                <Typography variant="h6" gutterBottom>
+                  A banking-grade verification with same legal as
+                  in person KYC:
+                </Typography>
+                <p>
+                  Live-Verify ensures regulatory compliance, robust
+                  banking-grade security, and seamless onboarding with
+                  protection against cyber threats and fraud.​
+                </p>
+                <p>Learn more</p>
+              </Stack>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
     </div>
   );
 };

@@ -22,3 +22,30 @@ body {
   left: 233.63px;
   border: 0.9433294534683228;
 }
+.box {
+  padding: 10px 0px 8px 0px;
+  margin-top: 0px;
+  margin-bottom: 4px;
+  font-family: "Roboto", sans-serif;
+}
+.Pbox {
+  background: #d9f1f1;
+  width: 100%;
+  height: 338px;
+  padding: 0px 0px 30px 0px;
+  gap: 19px;
+  border-radius: 2px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  margin-top: 40px;
+  justify-content: center;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.Pbox:hover {
+  transform: scale(1.03);
+}
+.pTop-Content {
+  display: flex;
+  align-items: end;
+}

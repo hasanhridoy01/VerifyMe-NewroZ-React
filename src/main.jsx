@@ -11,7 +11,11 @@ const theme = createTheme({
     keys : ["xs", "sm", "md", "lg", "xl"],
   },
   typography: {
-    fontFamily: "Roboto",
+    fontFamily: "'Exo 2', sans-serif",
+    color: 'gray'
+  },
+  p:{
+    color: 'gray',
   },
   palette: {
     mode: "light",
