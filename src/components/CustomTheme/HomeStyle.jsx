@@ -7,10 +7,14 @@ export const customButton = {
     padding: "15px 30px 15px 30px",
     gap: "15px",
     borderRadius: "30px",
-    border: "1px solid #FFFFFF",
-    background: "#FFFFFF",
+    border: "1px solid #d9f1f1",
     color: "#000",
     fontFamily: "'Exo 2', sans-serif",
+    cursor: "pointer",
+    ":hover": {
+      background: '#ffffff',
+      color: '#000'
+    },
   },
   btnStyleTwo: {
     width: "100%",
@@ -22,6 +26,11 @@ export const customButton = {
     color: "#000",
     fontFamily: "'Exo 2', sans-serif",
     marginLeft: "10px",
+    cursor: "pointer",
+    ":hover": {
+      background: '#ffffff',
+      color: '#000'
+    },
   },
 };
 

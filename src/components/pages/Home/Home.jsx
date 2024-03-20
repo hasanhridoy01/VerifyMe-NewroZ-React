@@ -3,6 +3,7 @@ import HomeBanner from "../../common/HomeBanner/HomeBanner";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import { customBox, customButton } from "../../CustomTheme/HomeStyle";
 import EkycWorks from "./EkycWorks";
+import FourThinings from "./FourThinings";
 
 const Home = () => {
   return (
@@ -301,89 +302,7 @@ const Home = () => {
         </Grid>
       </Container>
 
-      <Container sx={{ marginTop: "150px", marginBottom: "100px" }}>
-        <Grid spacing={5} container justifyContent="center" alignItems="center">
-          <Grid item lg={6} md={6} sm={12} xs={12}>
-            <Stack>
-              <Typography variant="h5" gutterBottom>
-                4 things that makes us stand out:
-              </Typography>
-              <p style={{ color: "gray" }}>
-                KYC verification operates through sophisticated technology and
-                data analysis, guaranteeing customer identity authentication,
-                regulatory adherence, and heightened onboarding process
-                security.
-              </p>
-              <Box
-                sx={{
-                  background: "#D9F1F1",
-                  margin: "20px 0px 10px 0px",
-                  padding: "10px",
-                  width: "400px",
-                }}
-              >
-                <Typography variant="h6" gutterBottom>
-                  1. An Exceptional Customer Care
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  margin: "5px 0px 0px 0px",
-                  padding: "10px",
-                  width: "500px",
-                }}
-              >
-                <Typography variant="h6" gutterBottom>
-                  2. Startup-friendly pricing
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  margin: "5px 0px 0px 0px",
-                  padding: "10px",
-                  width: "500px",
-                }}
-              >
-                <Typography variant="h6" gutterBottom>
-                  3. Highest security
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  margin: "5px 0px 0px 0px",
-                  padding: "10px",
-                  width: "500px",
-                }}
-              >
-                <Typography variant="h6" gutterBottom>
-                  4. User-friendly verification
-                </Typography>
-              </Box>
-            </Stack>
-          </Grid>
-          <Grid item lg={6} md={6} sm={12} xs={12}>
-            <Stack>
-              <Typography
-                variant="h6"
-                gutterBottom
-                textAlign="left"
-                width="80%"
-              >
-                Experience excellence with 4.5 Customer Satisfaction Score.​
-              </Typography>
-              <Typography textAlign="left">
-                Our commitment to quality and compliance allows our clients to
-                run their businesses confidently. With a 4.5 customer
-                satisfaction score, verifications double-check process,
-                30-second response time, and significant pass rate improvements,
-                Fully-Verified is the trusted partner for businesses seeking
-                exceptional KYC verification services while maintaining the
-                lowest cost possible.
-              </Typography>
-            </Stack>
-          </Grid>
-        </Grid>
-      </Container>
+      <FourThinings></FourThinings>
 
       <Container sx={{ marginTop: "200px", marginBottom: "100px" }}>
         <Grid container justifyContent="center" alignItems="center">

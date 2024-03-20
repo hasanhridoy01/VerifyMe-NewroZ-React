@@ -169,7 +169,15 @@ const EkycWorks = () => {
                     <Tab
                       label="Identity Verification"
                       value="1"
-                      sx={customButton.btnStyleOne}
+                      sx={{
+                        ...customButton.btnStyleOne,
+                        borderBottom: '1px solid transparent',
+                        "&.Mui-selected": {
+                          background: '#ffffff',
+                          color: '#000',
+                          borderBottom: 'none',
+                        }
+                      }}
                     />
                   </TabList>
                 </Box>
@@ -184,7 +192,13 @@ const EkycWorks = () => {
                     <Tab
                       label="Upload Additional Document"
                       value="2"
-                      sx={customButton.btnStyleTwo}
+                      sx={{
+                        ...customButton.btnStyleTwo,
+                        "&.Mui-selected": {
+                          background: '#ffffff',
+                          color: '#000'
+                        }
+                      }}
                     />
                   </TabList>
                 </Box>
@@ -199,7 +213,13 @@ const EkycWorks = () => {
                     <Tab
                       label="Face Authentication"
                       value="3"
-                      sx={customButton.btnStyleTwo}
+                      sx={{
+                        ...customButton.btnStyleTwo,
+                        "&.Mui-selected": {
+                          background: '#ffffff',
+                          color: '#000'
+                        }
+                      }}
                     />
                   </TabList>
                 </Box>
@@ -214,7 +234,13 @@ const EkycWorks = () => {
                     <Tab
                       label="Signature"
                       value="4"
-                      sx={customButton.btnStyleTwo}
+                      sx={{
+                        ...customButton.btnStyleTwo,
+                        "&.Mui-selected": {
+                          background: '#ffffff',
+                          color: '#000'
+                        }
+                      }}
                     />
                   </TabList>
                 </Box>
