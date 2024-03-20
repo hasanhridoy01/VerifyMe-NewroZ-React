@@ -247,8 +247,7 @@ const Home = () => {
               <p style={{ color: "gray", fontFamily: '"Roboto", sans-serif' }}>
                 We ensure a higher customer onboarding rate by 26% with minimum
                 false positives. Our solution helps companies identify potential
-                fraud while still allowing legitimate customers to be onboarded
-                quickly & easily.
+                fraud while still allowing legitimate.
               </p>
             </Box>
           </Grid>

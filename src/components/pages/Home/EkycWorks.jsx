@@ -21,13 +21,145 @@ const EkycWorks = () => {
         <Box sx={{ width: "100%", typography: "body1" }}>
           <TabContext value={value}>
             <Stack alignItems="center">
-              <TabPanel value="1">Identity Verification</TabPanel>
-              <TabPanel value="2">Upload Additional Document</TabPanel>
-              <TabPanel value="3">Face Authentication</TabPanel>
-              <TabPanel value="4">Signature</TabPanel>
+              <TabPanel value="1">
+                <Grid
+                  container
+                  alignItems="center"
+                  sx={{ backgroundColor: "#d9f1f1" }}
+                >
+                  <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <img
+                        src="../../../../public/images/identify/Left.png"
+                        alt=""
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <img
+                        src="../../../../public/images/identify/Section Header.png"
+                        alt=""
+                      />
+                    </Box>
+                  </Grid>
+                </Grid>
+              </TabPanel>
+
+              <TabPanel value="2">
+                <Grid
+                  container
+                  alignItems="center"
+                  sx={{ backgroundColor: "#d9f1f1" }}
+                >
+                  <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <img
+                        src="../../../../public/images/identify/Section Header (1).png"
+                        alt=""
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <Box
+                      display="flex"
+                      justifyContent="left"
+                      alignItems="left"
+                    >
+                      <img
+                        src="../../../../public/images/identify/Left (1).png"
+                        alt=""
+                      />
+                    </Box>
+                  </Grid>
+                </Grid>
+              </TabPanel>
+
+              <TabPanel value="3">
+                <Grid
+                  container
+                  alignItems="center"
+                  sx={{ backgroundColor: "#d9f1f1" }}
+                >
+                  <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <img
+                        src="../../../../public/images/identify/Left (2).png"
+                        alt=""
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <img
+                        src="../../../../public/images/identify/Section Header (2).png"
+                        alt=""
+                      />
+                    </Box>
+                  </Grid>
+                </Grid>
+              </TabPanel>
+
+              <TabPanel value="4">
+                <Grid
+                  container
+                  alignItems="center"
+                  sx={{ backgroundColor: "#d9f1f1" }}
+                >
+                  <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <img
+                        src="../../../../public/images/identify/Section Header (3).png"
+                        alt=""
+                      />
+                    </Box>
+                  </Grid>
+                  <Grid item lg={6} md={6} sm={12} xs={12}>
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <img
+                        src="../../../../public/images/identify/Left (3).png"
+                        alt=""
+                      />
+                    </Box>
+                  </Grid>
+                </Grid>
+              </TabPanel>
             </Stack>
 
-            <Grid container spacing={2} alignItems="center" justifyContent="center">
+            <Grid
+              container
+              spacing={2}
+              alignItems="center"
+              justifyContent="center"
+            >
               <Grid item lg={3} md={6} sm={12} xs={12}>
                 <Box>
                   <TabList
