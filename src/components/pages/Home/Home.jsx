@@ -1,9 +1,18 @@
 import "./Home.css";
 import HomeBanner from "../../common/HomeBanner/HomeBanner";
-import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { customBox, customButton } from "../../CustomTheme/HomeStyle";
 import EkycWorks from "./EkycWorks";
 import FourThinings from "./FourThinings";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const Home = () => {
   return (
@@ -12,11 +21,17 @@ const Home = () => {
         <HomeBanner></HomeBanner>
       </Container>
 
-      <Container sx={{marginTop: '220px', marginBottom: '0px'}}>
-        <Grid container alignItems='center' justifyContent='center'>
+      <Container sx={{ marginTop: "220px", marginBottom: "0px" }}>
+        <Grid container alignItems="center" justifyContent="center">
           <Grid item lg={12} md={12} sm={12} xs={12}>
-            <Typography variant="h4" gutterBottom sx={{textAlign: 'center'}}>How eKYC Works?</Typography>
-            <p style={{textAlign: 'center', width: '70%', margin: 'auto'}}>KYC verification operates through sophisticated technology and data analysis, guaranteeing customer identity authentication, regulatory adherence, and heightened onboarding process security.</p>
+            <Typography variant="h4" gutterBottom sx={{ textAlign: "center" }}>
+              How eKYC Works?
+            </Typography>
+            <p style={{ textAlign: "center", width: "70%", margin: "auto" }}>
+              KYC verification operates through sophisticated technology and
+              data analysis, guaranteeing customer identity authentication,
+              regulatory adherence, and heightened onboarding process security.
+            </p>
           </Grid>
         </Grid>
       </Container>
@@ -67,7 +82,17 @@ const Home = () => {
               <p style={{ marginTop: "10px" }}>
                 Keep pace and remain compliant with evolving KYC regulations.
               </p>
-              <p style={{ marginTop: "34px" }}>Learn more</p>
+              <Typography
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+                sx={{ marginTop: "40px" }}
+              >
+                Learn more
+                <IconButton size="small">
+                  <ArrowForwardIcon />
+                </IconButton>
+              </Typography>
             </Box>
           </Grid>
           <Grid spacing={0} item lg={3} sm={6} xs={12}>
@@ -88,7 +113,17 @@ const Home = () => {
                 Meet customer expectations for fast, secure onboarding in a
                 rapidly changing industry.
               </p>
-              <p style={{ marginTop: "20px" }}>Learn more</p>
+              <Typography
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+                sx={{ marginTop: "20px" }}
+              >
+                Learn more
+                <IconButton size="small">
+                  <ArrowForwardIcon />
+                </IconButton>
+              </Typography>
             </Box>
           </Grid>
           <Grid spacing={0} item lg={3} sm={6} xs={12}>
@@ -109,7 +144,17 @@ const Home = () => {
                 Achieve KYC compliance that transcends borders and helps you
                 defend.
               </p>
-              <p style={{ marginTop: "20px" }}>Learn more</p>
+              <Typography
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+                sx={{ marginTop: "20px" }}
+              >
+                Learn more
+                <IconButton size="small">
+                  <ArrowForwardIcon />
+                </IconButton>
+              </Typography>
             </Box>
           </Grid>
           <Grid spacing={0} item lg={3} sm={6} xs={12}>
@@ -130,7 +175,17 @@ const Home = () => {
                 Create a trusted ecosystem with verified vendors and customers
                 to gain a competitive advantage.
               </p>
-              <p style={{ marginTop: "20px" }}>Learn more</p>
+              <Typography
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+                sx={{ marginTop: "20px" }}
+              >
+                Learn more
+                <IconButton size="small">
+                  <ArrowForwardIcon />
+                </IconButton>
+              </Typography>
             </Box>
           </Grid>
         </Grid>
@@ -160,7 +215,17 @@ const Home = () => {
                 Provide a fast, smooth customer experience while meeting
                 extensive compliance obligations worldwide.
               </p>
-              <p style={{ marginTop: "20px" }}>Learn more</p>
+              <Typography
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+                sx={{ marginTop: "20px" }}
+              >
+                Learn more
+                <IconButton size="small">
+                  <ArrowForwardIcon />
+                </IconButton>
+              </Typography>
             </Box>
           </Grid>
           <Grid item lg={4} sm={8} xs={12} sx={{ mb: 4 }}>
@@ -181,7 +246,17 @@ const Home = () => {
                 Deliver comprehensive identity verification that protects your
                 payments business and customers.
               </p>
-              <p style={{ marginTop: "20px" }}>Learn more</p>
+              <Typography
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+                sx={{ marginTop: "20px" }}
+              >
+                Learn more
+                <IconButton size="small">
+                  <ArrowForwardIcon />
+                </IconButton>
+              </Typography>
             </Box>
           </Grid>
           <Grid item lg={4} sm={8} xs={12} sx={{ mb: 4 }}>
@@ -201,7 +276,17 @@ const Home = () => {
               <p style={{ marginTop: "10px" }}>
                 Keep pace and remain compliant with evolving KYC regulations.
               </p>
-              <p style={{ marginTop: "20px" }}>Learn more</p>
+              <Typography
+                variant="subtitle2"
+                display="block"
+                gutterBottom
+                sx={{ marginTop: "20px" }}
+              >
+                Learn more
+                <IconButton size="small">
+                  <ArrowForwardIcon />
+                </IconButton>
+              </Typography>
             </Box>
           </Grid>
         </Grid>
@@ -354,9 +439,20 @@ const Home = () => {
               <Box className="box">4. Verification in a matter of secods</Box>
             </Stack>
           </Grid>
-          <Grid item lg={6} md={6} sm={12} xs={12}>
+          <Grid
+            sx={{ display: { xs: "none", md: "block" } }}
+            item
+            lg={6}
+            md={6}
+            sm={12}
+            xs={12}
+          >
             <Box>
-              <img src="../../../../public/images/focused/Phone.png" alt="" />
+              <img
+                style={{ width: "100%" }}
+                src="../../../../public/images/focused/Phone.png"
+                alt=""
+              />
             </Box>
           </Grid>
         </Grid>
@@ -411,7 +507,12 @@ const Home = () => {
                   diligence checks in just 10 seconds, while reducing
                   operational expenses by up to 46%.
                 </p>
-                <p>Learn more</p>
+                <Typography variant="subtitle2" display="block" gutterBottom>
+                  Learn more
+                  <IconButton size="small">
+                    <ArrowForwardIcon />
+                  </IconButton>
+                </Typography>
               </Stack>
             </Box>
           </Grid>
@@ -443,7 +544,12 @@ const Home = () => {
                   laundering with a Fully-Verified identity verification tools.
                   ​
                 </p>
-                <p>Learn more</p>
+                <Typography variant="subtitle2" display="block" gutterBottom>
+                  Learn more
+                  <IconButton size="small">
+                    <ArrowForwardIcon />
+                  </IconButton>
+                </Typography>
               </Stack>
             </Box>
           </Grid>
@@ -468,15 +574,195 @@ const Home = () => {
               </div>
               <Stack spacing={3} mt={3} p={2}>
                 <Typography variant="h6" gutterBottom>
-                  A banking-grade verification with same legal as
-                  in person KYC:
+                  A banking-grade verification with same legal as in person KYC:
                 </Typography>
                 <p>
                   Live-Verify ensures regulatory compliance, robust
                   banking-grade security, and seamless onboarding with
                   protection against cyber threats and fraud.​
                 </p>
-                <p>Learn more</p>
+                <Typography variant="subtitle2" display="block" gutterBottom>
+                  Learn more
+                  <IconButton size="small">
+                    <ArrowForwardIcon />
+                  </IconButton>
+                </Typography>
+              </Stack>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+
+      <Container
+        sx={{
+          marginTop: "150px",
+          marginBottom: "100px",
+          display: { xs: "none", md: "block" },
+        }}
+      >
+        <Grid container alignItems="center" justifyContent="center">
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <Box>
+              <img
+                style={{ width: "100%" }}
+                src="../../../../public/images/no-code-intrigration/Board.png"
+                alt=""
+              />
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+
+      <Container sx={{ marginTop: "150px", marginBottom: "100px" }}>
+        <Grid container alignItems="center" justifyContent="center">
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <Typography variant="h4" gutterBottom>
+              OUR SERVICES
+            </Typography>
+            <p>
+              VerifyMe KYC Verification application is a digital tool designed
+              to streamline and enhance the customer onboarding process for
+              businesses and financial institutions. KYC is a critical procedure
+              mandated by regulatory authorities to verify the identity and
+              assess the risk associated with potential customers or clients
+              before engaging in any business relationship with them.
+            </p>
+          </Grid>
+        </Grid>
+        <Grid
+          container
+          spacing={2}
+          alignItems="center"
+          justifyContent="center"
+          mt={2}
+        >
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            <Box className="servicesBox">
+              <img
+                src="../../../../public/images/OurServices/head.png"
+                alt=""
+              />
+              <Stack spacing={2} mt={3} pr={2}>
+                <Typography variant="h6">Age Verification</Typography>
+                <p style={{ color: "gray" }}>
+                  Prevent underage access to restricted resources and protect
+                  your company from non-compliance fines.
+                </p>
+                <Typography variant="subtitle2" display="block" gutterBottom>
+                  Learn more
+                  <IconButton size="small">
+                    <ArrowForwardIcon />
+                  </IconButton>
+                </Typography>
+              </Stack>
+            </Box>
+          </Grid>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            <Box className="servicesBox">
+              <img
+                src="../../../../public/images/OurServices/head (1).png"
+                alt=""
+              />
+              <Stack spacing={2} mt={3} pr={2}>
+                <Typography variant="h6">KYC Compliance​</Typography>
+                <p style={{ color: "gray" }}>
+                  Collect data customers. Check authenticity of the documents.
+                  Asses risk and avoid financial & reputation loses.
+                </p>
+                <Typography variant="subtitle2" display="block" gutterBottom>
+                  Learn more
+                  <IconButton size="small">
+                    <ArrowForwardIcon />
+                  </IconButton>
+                </Typography>
+              </Stack>
+            </Box>
+          </Grid>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            <Box className="servicesBox">
+              <img
+                src="../../../../public/images/OurServices/head (2).png"
+                alt=""
+              />
+              <Stack spacing={2} mt={3} pr={2}>
+                <Typography variant="h6">Proof Of Address​</Typography>
+                <p style={{ color: "gray" }}>
+                  Confirm that the provided address for the verification process
+                  is associated with a particular location for the user. ​
+                </p>
+                <Typography variant="subtitle2" display="block" gutterBottom>
+                  Learn more
+                  <IconButton size="small">
+                    <ArrowForwardIcon />
+                  </IconButton>
+                </Typography>
+              </Stack>
+            </Box>
+          </Grid>
+
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            <Box className="servicesBox">
+              <img
+                src="../../../../public/images/OurServices/head (3).png"
+                alt=""
+              />
+              <Stack spacing={2} mt={3} pr={2}>
+                <Typography variant="h6">Fraud Prevention​​</Typography>
+                <p style={{ color: "gray" }}>
+                  Determine whether your potential customer is being truthful
+                  regarding their identity to eliminate the risk of cybercrime.
+                  ​
+                </p>
+                <Typography variant="subtitle2" display="block" gutterBottom>
+                  Learn more
+                  <IconButton size="small">
+                    <ArrowForwardIcon />
+                  </IconButton>
+                </Typography>
+              </Stack>
+            </Box>
+          </Grid>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            <Box className="servicesBox">
+              <img
+                src="../../../../public/images/OurServices/head (4).png"
+                alt=""
+              />
+              <Stack spacing={2} mt={3} pr={2}>
+                <Typography variant="h6">ID Verification​​</Typography>
+                <p style={{ color: "gray" }}>
+                  Know if your prospective customer is telling the truth about
+                  who they say they are, before granting access to your service.
+                  ​​
+                </p>
+                <Typography variant="subtitle2" display="block" gutterBottom>
+                  Learn more
+                  <IconButton size="small">
+                    <ArrowForwardIcon />
+                  </IconButton>
+                </Typography>
+              </Stack>
+            </Box>
+          </Grid>
+          <Grid item lg={4} md={6} sm={12} xs={12}>
+            <Box className="servicesBox">
+              <img
+                src="../../../../public/images/OurServices/head (5).png"
+                alt=""
+              />
+              <Stack spacing={2} mt={3} pr={2}>
+                <Typography variant="h6">Identity Verification​</Typography>
+                <p style={{ color: "gray" }}>
+                  Eliminated risk of cybercrimes, financial crimes and money
+                  laundering with a Fully-Verified identity verification tools.
+                  ​
+                </p>
+                <Typography variant="subtitle2" display="block" gutterBottom>
+                  Learn more
+                  <IconButton size="small">
+                    <ArrowForwardIcon />
+                  </IconButton>
+                </Typography>
               </Stack>
             </Box>
           </Grid>

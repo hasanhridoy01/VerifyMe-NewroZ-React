@@ -14,8 +14,11 @@ const theme = createTheme({
     fontFamily: "'Exo 2', sans-serif",
     color: 'gray'
   },
-  p:{
+  p: {
     color: 'gray',
+  },
+  img: {
+    width: '100%'
   },
   palette: {
     mode: "light",

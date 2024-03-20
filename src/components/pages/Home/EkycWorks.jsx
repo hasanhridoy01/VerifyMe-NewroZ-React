@@ -25,7 +25,7 @@ const EkycWorks = () => {
                 <Grid
                   container
                   alignItems="center"
-                  sx={{ backgroundColor: "#d9f1f1" }}
+                  sx={{ backgroundColor: "#d9f1f1", padding: { xs: '20px', sm: '20px' } }}
                 >
                   <Grid item lg={6} md={6} sm={12} xs={12}>
                     <Box
@@ -36,6 +36,7 @@ const EkycWorks = () => {
                       <img
                         src="../../../../public/images/identify/Left.png"
                         alt=""
+                        style={{width: '100%'}}
                       />
                     </Box>
                   </Grid>
@@ -48,6 +49,7 @@ const EkycWorks = () => {
                       <img
                         src="../../../../public/images/identify/Section Header.png"
                         alt=""
+                        style={{width: '100%'}}
                       />
                     </Box>
                   </Grid>
@@ -58,7 +60,7 @@ const EkycWorks = () => {
                 <Grid
                   container
                   alignItems="center"
-                  sx={{ backgroundColor: "#d9f1f1" }}
+                  sx={{ backgroundColor: "#d9f1f1", padding: { xs: '20px', sm: '20px' } }}
                 >
                   <Grid item lg={6} md={6} sm={12} xs={12}>
                     <Box
@@ -69,6 +71,7 @@ const EkycWorks = () => {
                       <img
                         src="../../../../public/images/identify/Section Header (1).png"
                         alt=""
+                        style={{width: '100%'}}
                       />
                     </Box>
                   </Grid>
@@ -77,6 +80,7 @@ const EkycWorks = () => {
                       <img
                         src="../../../../public/images/identify/Left (1).png"
                         alt=""
+                        style={{width: '100%'}}
                       />
                     </Box>
                   </Grid>
@@ -87,7 +91,7 @@ const EkycWorks = () => {
                 <Grid
                   container
                   alignItems="center"
-                  sx={{ backgroundColor: "#d9f1f1" }}
+                  sx={{ backgroundColor: "#d9f1f1", padding: { xs: '20px', sm: '20px' } }}
                 >
                   <Grid item lg={6} md={6} sm={12} xs={12}>
                     <Box
@@ -98,6 +102,7 @@ const EkycWorks = () => {
                       <img
                         src="../../../../public/images/identify/Left (2).png"
                         alt=""
+                        style={{width: '100%'}}
                       />
                     </Box>
                   </Grid>
@@ -110,6 +115,7 @@ const EkycWorks = () => {
                       <img
                         src="../../../../public/images/identify/Section Header (2).png"
                         alt=""
+                        style={{width: '100%'}}
                       />
                     </Box>
                   </Grid>
@@ -120,7 +126,7 @@ const EkycWorks = () => {
                 <Grid
                   container
                   alignItems="center"
-                  sx={{ backgroundColor: "#d9f1f1" }}
+                  sx={{ backgroundColor: "#d9f1f1", padding: { xs: '20px', sm: '20px' } }}
                 >
                   <Grid item lg={6} md={6} sm={12} xs={12}>
                     <Box
@@ -131,6 +137,7 @@ const EkycWorks = () => {
                       <img
                         src="../../../../public/images/identify/Section Header (3).png"
                         alt=""
+                        style={{width: '100%'}}
                       />
                     </Box>
                   </Grid>
@@ -143,6 +150,7 @@ const EkycWorks = () => {
                       <img
                         src="../../../../public/images/identify/Left (3).png"
                         alt=""
+                        style={{width: '100%'}}
                       />
                     </Box>
                   </Grid>
@@ -156,6 +164,7 @@ const EkycWorks = () => {
               alignItems="center"
               justifyContent="center"
               mt={5}
+              p={5}
             >
               <Grid item lg={3} md={6} sm={12} xs={12}>
                 <Box>
@@ -177,15 +186,9 @@ const EkycWorks = () => {
                       sx={{
                         ...customButton.btnStyleOne,
                         borderBottom: "1px solid transparent",
-                        indicator: {
-                          display: "none",
-                        },
                         "&.Mui-selected": {
                           background: "#ffffff",
                           color: "#000",
-                          indicator: {
-                            display: "none",
-                          },
                         },
                         "& .MuiTab-indicator": {
                           borderBottom: "none",
