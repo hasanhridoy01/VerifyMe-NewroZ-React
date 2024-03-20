@@ -768,6 +768,14 @@ const Home = () => {
           </Grid>
         </Grid>
       </Container>
+
+      <section className="Simple-Easier-Section">
+        <img
+          style={{ width: "90%", display: 'block', margin: 'auto', paddingTop: '110px' }}
+          src="../../../../public/images/SimpleEasyer/Dotted.png"
+          alt=""
+        />
+      </section>
     </div>
   );
 };

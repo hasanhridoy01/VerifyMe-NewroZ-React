@@ -59,6 +59,12 @@ body {
   display: flex;
   transition: 0.4s;
 }
-.servicesBox:hover{
+.servicesBox:hover {
   transform: scale(1.04);
+}
+.Simple-Easier-Section {
+  background: #d9f1f1;
+  height: 955px;
+  gap: 10px;
+  opacity: 0px;
 }
