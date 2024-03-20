@@ -49,13 +49,13 @@ const FourThinings = () => {
 
   return (
     <Container sx={{ marginTop: "150px", marginBottom: "100px" }}>
-      <Grid spacing={5} container justifyContent="center" alignItems="center">
-        <Grid item lg={6} md={6} sm={12} xs={12}>
+      <Grid spacing={0} container justifyContent="center" alignItems="center">
+        <Grid item lg={5} md={5} sm={12} xs={12}>
           <Stack>
             <Typography variant="h5" gutterBottom>
               4 things that makes us stand out:
             </Typography>
-            <p style={{ color: "gray" }}>
+            <p style={{ color: "gray", width: '90%'}}>
               KYC verification operates through sophisticated technology and
               data analysis, guaranteeing customer identity authentication,
               regulatory adherence, and heightened onboarding process security.
@@ -66,6 +66,7 @@ const FourThinings = () => {
                 // background: "#D9F1F1",
                 margin: "20px 0px 10px 0px",
                 padding: "10px 0px 10px 0px",
+                width: '100%',
               }}
             >
               <Tabs
@@ -79,22 +80,30 @@ const FourThinings = () => {
                   flexDirection: "row",
                   justifyContent: "left",
                   alignItems: "center",
+                  "& .MuiTabs-indicator": {
+                    display: "none",
+                  },
                 }}
               >
                 <Tab
                   sx={{
                     margin: "5px 5px 5px 5px",
-                    padding: "10px 100px 10px 0px",
+                    padding: "10px 100px 10px 19px",
                     color: "#000",
                     marginLeft: "0px",
                     marginRight: "200px",
+                    width: '100%',
                     textAlign: "left",
+                    border: '1px dotted gray',
                     position: "relative",
-                    // border: '1px solid gray',
+                    "& .MuiTabs-indicator": {
+                      display: "none",
+                    },
                     "&.Mui-selected": {
                       background: "#d9f1f1",
                       color: "#000",
                       borderRadius: "10px",
+                      width: '100%'
                     },
                   }}
                   label="1. An Exceptional Customer Care"
@@ -108,11 +117,16 @@ const FourThinings = () => {
                     marginLeft: "0px",
                     marginRight: "218px",
                     textAlign: "left",
+                    border: '1px dotted gray',
+                    width: '100%',
                     position: "relative",
                     "&.Mui-selected": {
                       background: "#d9f1f1",
                       color: "#000",
                       borderRadius: "10px",
+                    },
+                    "& .MuiTabs-indicator": {
+                      display: "none",
                     },
                   }}
                   label="2. Startup-friendly pricing"
@@ -126,7 +140,12 @@ const FourThinings = () => {
                     marginLeft: "0px",
                     marginRight: "220px",
                     textAlign: "left",
+                    border: '1px dotted gray',
+                    width: '100%',
                     position: "relative",
+                    "& .MuiTabs-indicator": {
+                      display: "none",
+                    },
                     "&.Mui-selected": {
                       background: "#d9f1f1",
                       color: "#000",
@@ -143,8 +162,13 @@ const FourThinings = () => {
                     color: "#000",
                     marginLeft: "0px",
                     marginRight: "226px",
+                    border: '1px dotted gray',
                     textAlign: "left",
+                    width: '100%',
                     position: "relative",
+                    "& .MuiTabs-indicator": {
+                      display: "none",
+                    },
                     "&.Mui-selected": {
                       background: "#d9f1f1",
                       color: "#000",
@@ -158,7 +182,7 @@ const FourThinings = () => {
             </Box>
           </Stack>
         </Grid>
-        <Grid item lg={6} md={6} sm={12} xs={12} sx={{ marginTop: "90px" }}>
+        <Grid item lg={7} md={7} sm={12} xs={12} sx={{ marginTop: "90px" }}>
           <Stack>
             <TabPanel value={value} index={0}>
               <Typography

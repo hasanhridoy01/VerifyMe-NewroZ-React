@@ -12,6 +12,14 @@ const Home = () => {
         <HomeBanner></HomeBanner>
       </Container>
 
+      <Container sx={{marginTop: '220px', marginBottom: '0px'}}>
+        <Grid container alignItems='center' justifyContent='center'>
+          <Grid item lg={12} md={12} sm={12} xs={12}>
+            <Typography variant="h4" gutterBottom sx={{textAlign: 'center'}}>How eKYC Works?</Typography>
+            <p style={{textAlign: 'center', width: '70%', margin: 'auto'}}>KYC verification operates through sophisticated technology and data analysis, guaranteeing customer identity authentication, regulatory adherence, and heightened onboarding process security.</p>
+          </Grid>
+        </Grid>
+      </Container>
       <EkycWorks></EkycWorks>
 
       <Container sx={{ marginTop: "100px" }}>

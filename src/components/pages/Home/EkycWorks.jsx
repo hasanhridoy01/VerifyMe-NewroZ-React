@@ -17,7 +17,7 @@ const EkycWorks = () => {
 
   return (
     <div>
-      <Container sx={{ marginTop: "200px" }}>
+      <Container sx={{ marginTop: "80px" }}>
         <Box sx={{ width: "100%", typography: "body1" }}>
           <TabContext value={value}>
             <Stack alignItems="center">
@@ -73,11 +73,7 @@ const EkycWorks = () => {
                     </Box>
                   </Grid>
                   <Grid item lg={6} md={6} sm={12} xs={12}>
-                    <Box
-                      display="flex"
-                      justifyContent="left"
-                      alignItems="left"
-                    >
+                    <Box display="flex" justifyContent="left" alignItems="left">
                       <img
                         src="../../../../public/images/identify/Left (1).png"
                         alt=""
@@ -159,24 +155,41 @@ const EkycWorks = () => {
               spacing={2}
               alignItems="center"
               justifyContent="center"
+              mt={5}
             >
               <Grid item lg={3} md={6} sm={12} xs={12}>
                 <Box>
                   <TabList
                     onChange={handleChange}
                     aria-label="lab API tabs example"
+                    sx={{
+                      "& .MuiTab-indicator": {
+                        borderBottom: "none",
+                      },
+                      "& .MuiTabs-indicator": {
+                        display: "none",
+                      },
+                    }}
                   >
                     <Tab
                       label="Identity Verification"
                       value="1"
                       sx={{
                         ...customButton.btnStyleOne,
-                        borderBottom: '1px solid transparent',
+                        borderBottom: "1px solid transparent",
+                        indicator: {
+                          display: "none",
+                        },
                         "&.Mui-selected": {
-                          background: '#ffffff',
-                          color: '#000',
-                          borderBottom: 'none',
-                        }
+                          background: "#ffffff",
+                          color: "#000",
+                          indicator: {
+                            display: "none",
+                          },
+                        },
+                        "& .MuiTab-indicator": {
+                          borderBottom: "none",
+                        },
                       }}
                     />
                   </TabList>
@@ -188,6 +201,11 @@ const EkycWorks = () => {
                   <TabList
                     onChange={handleChange}
                     aria-label="lab API tabs example"
+                    sx={{
+                      "& .MuiTabs-indicator": {
+                        display: "none",
+                      },
+                    }}
                   >
                     <Tab
                       label="Upload Additional Document"
@@ -195,9 +213,9 @@ const EkycWorks = () => {
                       sx={{
                         ...customButton.btnStyleTwo,
                         "&.Mui-selected": {
-                          background: '#ffffff',
-                          color: '#000'
-                        }
+                          background: "#ffffff",
+                          color: "#000",
+                        },
                       }}
                     />
                   </TabList>
@@ -209,6 +227,11 @@ const EkycWorks = () => {
                   <TabList
                     onChange={handleChange}
                     aria-label="lab API tabs example"
+                    sx={{
+                      "& .MuiTabs-indicator": {
+                        display: "none",
+                      },
+                    }}
                   >
                     <Tab
                       label="Face Authentication"
@@ -216,9 +239,9 @@ const EkycWorks = () => {
                       sx={{
                         ...customButton.btnStyleTwo,
                         "&.Mui-selected": {
-                          background: '#ffffff',
-                          color: '#000'
-                        }
+                          background: "#ffffff",
+                          color: "#000",
+                        },
                       }}
                     />
                   </TabList>
@@ -230,6 +253,11 @@ const EkycWorks = () => {
                   <TabList
                     onChange={handleChange}
                     aria-label="lab API tabs example"
+                    sx={{
+                      "& .MuiTabs-indicator": {
+                        display: "none",
+                      },
+                    }}
                   >
                     <Tab
                       label="Signature"
@@ -237,9 +265,9 @@ const EkycWorks = () => {
                       sx={{
                         ...customButton.btnStyleTwo,
                         "&.Mui-selected": {
-                          background: '#ffffff',
-                          color: '#000'
-                        }
+                          background: "#ffffff",
+                          color: "#000",
+                        },
                       }}
                     />
                   </TabList>
