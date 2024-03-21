@@ -62,9 +62,16 @@ body {
 .servicesBox:hover {
   transform: scale(1.04);
 }
-.Simple-Easier-Section {
-  background: #d9f1f1;
-  height: 955px;
-  gap: 10px;
+.Simple-Box {
+  width: 100%;
+  height: 620px;
+  padding: 31px 33px 31px 33px;
+  gap: 30px;
+  border-radius: 2px 0px 0px 0px;
   opacity: 0px;
+  background: #ffffff;
+  transition: 0.4s;
+}
+.Simple-Box:hover{
+  transform: scale(1.03);
 }
