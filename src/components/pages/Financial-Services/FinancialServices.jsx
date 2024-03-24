@@ -2,6 +2,7 @@ import { Box, Container, Stack } from "@mui/system";
 import FinancialServicesBanner from "../../common/FinancialServicesBanner/FinancialServicesBanner";
 import { Grid, Typography } from "@mui/material";
 import "./FinancialServices.css";
+import Footer from "../../common/Footer/Footer";
 
 const FinancialServices = () => {
   return (
@@ -300,13 +301,40 @@ const FinancialServices = () => {
         </Grid>
       </Container>
 
-      <Container sx={{ marginBottom: "100px", marginTop: "200px" }}>
-        <Grid container alignItems='center' justifyContent='center'>
-            <Grid item lg={12} md={12} sm={12} xs={12}>
-                <img style={{width: '100%'}} src="../../../../public/images/financial-services/Section.png" alt="" />
-            </Grid>
+      <Grid container alignItems="center" justifyContent="center" sx={{ marginBottom: "100px", marginTop: "200px" }}>
+        <Grid item lg={12} md={12} sm={12} xs={12}>
+          <img
+            style={{ width: "100%" }}
+            src="../../../../public/images/financial-services/Section.png"
+            alt=""
+          />
+        </Grid>
+      </Grid>
+
+      <Container sx={{ marginTop: "150px", marginBottom: "100px" }}>
+        <Grid container alignItems="center" justifyContent="center">
+          <Grid item lg={6} md={6} sm={12} xs={12} alignItems='center' justifyContent='center'>
+            <Box>
+              <img
+                style={{ width: "100%" }}
+                src="../../../../public/images/Don'tHaveAccount/Left (1).png"
+                alt=""
+              />
+            </Box>
+          </Grid>
+          <Grid item lg={6} md={6} sm={12} xs={12} alignItems='center' justifyContent='center'>
+            <Box>
+              <img
+                style={{ width: "100%" }}
+                src="../../../../public/images/Don'tHaveAccount/Section Header (1).png"
+                alt=""
+              />
+            </Box>
+          </Grid>
         </Grid>
       </Container>
+
+      <Footer></Footer>
     </div>
   );
 };
