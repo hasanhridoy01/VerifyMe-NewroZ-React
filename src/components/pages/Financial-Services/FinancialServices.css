@@ -5,6 +5,25 @@
   border-radius: 2px 0px 0px 0px;
   border: 1px 0px 0px 0px;
   opacity: 0px;
-  border: 1px dotted #BFE8E8;
-  background: #D9F1F1;
+  border: 1px dotted #bfe8e8;
+  background: #d9f1f1;
+  transition: 0.4s;
+}
+.ProtectBox:hover {
+  transform: scale(1.03);
+}
+.VerifiedBox {
+  height: 349px;
+  padding: 30px 0px 0px 0px;
+  gap: 20px;
+  border-radius: 2px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  background: #ffffff;
+  border: 1px solid #BFE8E8;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.VerifiedBox:hover{
+    transform: scale(1.04);
 }
