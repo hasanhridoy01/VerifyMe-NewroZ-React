@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Main from "./components/layout/Main/Main.jsx";
 import Home from "./components/pages/Home/Home.jsx";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Solutions from "./components/pages/Solutions/Solutions.jsx";
 
 //use custom theme...................!
 const theme = createTheme({
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+      {
+        path: '/solution',
+        element: <Solutions></Solutions>
+      }
     ],
   },
 ]);

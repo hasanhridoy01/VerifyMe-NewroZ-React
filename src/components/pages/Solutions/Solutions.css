@@ -1,0 +1,43 @@
+.IdentityBox {
+  background: #d8f4f5;
+  height: 113px;
+  border-radius: 2px;
+  border: 1px dotted #bfe8e8;
+  padding: 20px 30px 20px 30px;
+  gap: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+.IdentityBox:hover {
+  transform: scale(1.04);
+}
+.SeamlessBox {
+  background: #d9f1f1;
+  height: 122px;
+  padding: 0px 20px 0px 0px;
+  gap: 19px;
+  border-radius: 2px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  border: 1px dotted #bfe8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+.SeamlessBox:hover{
+    transform: scale(1.04);
+}
+.SeamlessBoxDifferent {
+  background: #39b4b4;
+  height: 122px;
+  padding: 0px 20px 0px 0px;
+  gap: 19px;
+  border-radius: 2px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  border: 1px dotted #bfe8e8;
+  color: azure;
+}
