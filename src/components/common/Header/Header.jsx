@@ -386,7 +386,12 @@ const Header = () => {
                 },
               }}
             >
-              Pricing
+              <Link
+                to="/pricing"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                Pricing
+              </Link>
             </Button>
             <Button
               onClick={handleCloseNavMenu}
