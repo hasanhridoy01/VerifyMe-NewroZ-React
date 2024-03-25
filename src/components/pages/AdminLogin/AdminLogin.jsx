@@ -42,7 +42,7 @@ const AdminLogin = () => {
                 <Typography variant="h5" gutterBottom mt={3} mb={5}>
                   Sign-In to continue
                 </Typography>
-                <Box mb={2}>
+                <Box mb={3}>
                   <TextField
                     required
                     id="standard-required"
@@ -57,7 +57,7 @@ const AdminLogin = () => {
                     }}
                   />
                 </Box>
-                <Box mb={2}>
+                <Box mb={3}>
                   <TextField
                     id="standard-password-input"
                     label="Password"
@@ -73,7 +73,7 @@ const AdminLogin = () => {
                     }}
                   />
                 </Box>
-                <Box mb={2}>
+                <Box mb={3}>
                   <Button
                     variant="contained"
                     sx={{
