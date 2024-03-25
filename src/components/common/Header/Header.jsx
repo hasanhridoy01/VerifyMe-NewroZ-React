@@ -396,8 +396,9 @@ const Header = () => {
               sx={{
                 my: 2,
                 mx: 2,
-                color: selected ? "#ffffff" : "#000",
-                backgroundColor: selected ? "#000" : "#ffffff",
+                // color: selected ? "#ffffff" : "#000",
+                // backgroundColor: selected ? "#000" : "#ffffff",
+                color: "#000",
                 borderRadius: "19px",
                 padding: "10px",
                 fontWeight: 700,
@@ -405,6 +406,10 @@ const Header = () => {
                 ":hover": {
                   color: "#000",
                   backgroundColor: "#ffffff",
+                },
+                ':active': {
+                  color: '#ffffff',
+                  backgroundColor: '#000000',
                 },
               }}
               component={Link}

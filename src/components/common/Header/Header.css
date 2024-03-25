@@ -16,8 +16,18 @@
   margin-top: 20px;
 }
 .logoImageSmall {
-  
 }
 .navbar {
   background-color: #d5f9ff;
+}
+.custom-button {
+  color: #000;
+  border-radius: 19px;
+  padding: 10px;
+  font-weight: 700;
+  display: block;
+}
+.custom-button:active {
+  color: #ffffff;
+  background-color: #000000;
 }
