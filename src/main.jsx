@@ -9,6 +9,7 @@ import FinancialServices from "./components/pages/Financial-Services/FinancialSe
 import Pricing from "./components/pages/Pricing/Pricing.jsx";
 import Contact from "./components/pages/Contact/Contact.jsx";
 import AdminLogin from "./components/pages/AdminLogin/AdminLogin.jsx";
+import DashBoard from "./components/pages/DashBoard/DashBoard.jsx";
 
 //use custom theme...................!
 const theme = createTheme({
@@ -108,9 +109,13 @@ const router = createBrowserRouter([
       {
         path: '/adminLogin',
         element: <AdminLogin></AdminLogin>
-      }
+      },
     ],
   },
+  {
+    path: '/dashboard',
+    element: <DashBoard></DashBoard>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

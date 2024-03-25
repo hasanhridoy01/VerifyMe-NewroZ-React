@@ -407,9 +407,13 @@ const Header = () => {
                   color: "#000",
                   backgroundColor: "#ffffff",
                 },
-                ':active': {
+                '&:active': { 
                   color: '#ffffff',
                   backgroundColor: '#000000',
+                },
+                "&.Mui-selected": {
+                  background: "#ffffff",
+                  color: "#000",
                 },
               }}
               component={Link}

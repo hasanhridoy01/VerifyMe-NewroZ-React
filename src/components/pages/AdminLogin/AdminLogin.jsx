@@ -13,6 +13,8 @@ import {
 import { Box, Container, Stack, ThemeProvider } from "@mui/system";
 import EmailIcon from "@mui/icons-material/Email";
 import HttpsIcon from "@mui/icons-material/Https";
+import "./AdminLogin.css";
+import { Link } from "react-router-dom";
 
 const AdminLogin = () => {
   return (
@@ -43,35 +45,24 @@ const AdminLogin = () => {
                   Sign-In to continue
                 </Typography>
                 <Box mb={3}>
-                  <TextField
-                    required
-                    id="standard-required"
-                    label="Email"
-                    sx={{ width: "350px" }}
-                    InputProps={{
-                      startAdornment: (
-                        <Box sx={{ marginRight: 1 }}>
-                          <EmailIcon />
-                        </Box>
-                      ),
-                    }}
-                  />
+                  <div className="inputContainer">
+                    <EmailIcon className="icon" />
+                    <input
+                      className="inputStyle"
+                      type="email"
+                      placeholder="Enter Your Email Address"
+                    />
+                  </div>
                 </Box>
                 <Box mb={3}>
-                  <TextField
-                    id="standard-password-input"
-                    label="Password"
-                    type="password"
-                    autoComplete="current-password"
-                    sx={{ width: "350px" }}
-                    InputProps={{
-                      startAdornment: (
-                        <Box sx={{ marginRight: 1 }}>
-                          <HttpsIcon />
-                        </Box>
-                      ),
-                    }}
-                  />
+                  <div className="inputContainer">
+                    <HttpsIcon className="icon" />
+                    <input
+                      className="inputStyle"
+                      type="password"
+                      placeholder="Enter Your Password"
+                    />
+                  </div>
                 </Box>
                 <Box mb={3}>
                   <Button
@@ -81,6 +72,8 @@ const AdminLogin = () => {
                       padding: "15px",
                       backgroundColor: "#00A1A1",
                     }}
+                    component={Link} 
+                    to="/dashboard" 
                   >
                     CONTINUE
                   </Button>
@@ -100,14 +93,22 @@ const AdminLogin = () => {
         </Grid>
       </Container>
 
-      <div className="Footer-Bottom" style={{marginTop: '50px'}}>
+      <div className="Footer-Bottom" style={{ marginTop: "50px" }}>
         <Stack direction="row" spacing={2}>
-          <Typography variant="body1" gutterBottom>Privacy policy</Typography>
-          <Typography variant="body1" gutterBottom>Sitemap</Typography>
-          <Typography variant="body1" gutterBottom>Terms of Use</Typography>
+          <Typography variant="body1" gutterBottom>
+            Privacy policy
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            Sitemap
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            Terms of Use
+          </Typography>
         </Stack>
         <Stack>
-            <Typography variant="body1" gutterBottom>© 2003-2024, All Rights Reserved</Typography>
+          <Typography variant="body1" gutterBottom>
+            © 2003-2024, All Rights Reserved
+          </Typography>
         </Stack>
       </div>
     </div>
