@@ -409,7 +409,12 @@ const Header = () => {
                 },
               }}
             >
-              Contact Us
+              <Link
+                to="/contact"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                Contact Us
+              </Link>
             </Button>
             {/* {pages.map((page) => (
               <Button

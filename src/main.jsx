@@ -7,6 +7,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Solutions from "./components/pages/Solutions/Solutions.jsx";
 import FinancialServices from "./components/pages/Financial-Services/FinancialServices.jsx";
 import Pricing from "./components/pages/Pricing/Pricing.jsx";
+import Contact from "./components/pages/Contact/Contact.jsx";
 
 //use custom theme...................!
 const theme = createTheme({
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
       {
         path: '/pricing',
         element: <Pricing></Pricing>
+      },
+      {
+        path: '/contact',
+        element: <Contact></Contact>
       }
     ],
   },
