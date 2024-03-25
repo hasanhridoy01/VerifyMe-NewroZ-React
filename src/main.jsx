@@ -8,6 +8,7 @@ import Solutions from "./components/pages/Solutions/Solutions.jsx";
 import FinancialServices from "./components/pages/Financial-Services/FinancialServices.jsx";
 import Pricing from "./components/pages/Pricing/Pricing.jsx";
 import Contact from "./components/pages/Contact/Contact.jsx";
+import AdminLogin from "./components/pages/AdminLogin/AdminLogin.jsx";
 
 //use custom theme...................!
 const theme = createTheme({
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
       {
         path: '/contact',
         element: <Contact></Contact>
+      },
+      {
+        path: '/adminLogin',
+        element: <AdminLogin></AdminLogin>
       }
     ],
   },

@@ -23,7 +23,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const pages = ["Solutions", "Industries", "Pricing", "Contact Us"];
@@ -72,6 +72,26 @@ const Header = () => {
 
   const handleClose2 = () => {
     setAnchorEl2(null);
+  };
+
+  const [selected, setSelected] = React.useState(false);
+
+  const handleClickSelected = () => {
+    setSelected(!selected);
+  };
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const ScrollToTop = () => {
+    const { pathname } = useLocation();
+
+    React.useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+
+    return null;
   };
 
   const DrawerList = (
@@ -205,14 +225,12 @@ const Header = () => {
                   backgroundColor: "#ffffff",
                   borderRadius: "19px",
                 },
-                "&.Mui-selected": {
-                  background: "#ffffff",
-                  color: "#000",
-                },
               }}
             >
               Solutions
             </Button>
+
+            <ScrollToTop />
 
             <Menu
               anchorEl={anchorEl}
@@ -371,33 +389,40 @@ const Header = () => {
             </Menu>
 
             <Button
-              onClick={handleCloseNavMenu}
+              onClick={() => {
+                handleClickSelected();
+                handleCloseNavMenu();
+              }}
               sx={{
                 my: 2,
                 mx: 2,
-                color: "#000",
+                color: selected ? "#ffffff" : "#000",
+                backgroundColor: selected ? "#000" : "#ffffff",
+                borderRadius: "19px",
                 padding: "10px",
                 fontWeight: 700,
                 display: "block",
                 ":hover": {
                   color: "#000",
                   backgroundColor: "#ffffff",
-                  borderRadius: "19px",
                 },
               }}
+              component={Link}
+              to="/pricing"
             >
-              <Link
-                to="/pricing"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                Pricing
-              </Link>
+              Pricing
             </Button>
+
             <Button
-              onClick={handleCloseNavMenu}
+              onClick={() => {
+                handleCloseNavMenu();
+              }}
               sx={{
                 my: 2,
                 mx: 2,
+                // color: selected ? "#ffffff" : "#000",
+                // backgroundColor: selected ? "#000" : "#ffffff",
+                // borderRadius: selected ? "19px" : "0px",
                 color: "#000",
                 padding: "10px",
                 fontWeight: 700,
@@ -408,13 +433,10 @@ const Header = () => {
                   borderRadius: "19px",
                 },
               }}
+              component={Link}
+              to="/contact"
             >
-              <Link
-                to="/contact"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                Contact Us
-              </Link>
+              Contact Us
             </Button>
             {/* {pages.map((page) => (
               <Button
@@ -441,14 +463,13 @@ const Header = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton
-                onClick={handleOpenUserMenu}
-                sx={{ p: 0, background: "#ffffff" }}
-              >
-                <Avatar
-                  alt="Remy Sharp"
-                  src="../../../../public/images/header/Frame 48095401.png"
-                />
+              <IconButton sx={{ p: 0, background: "#ffffff" }}>
+                <Link component={Link} to="/adminLogin">
+                  <Avatar
+                    alt="Remy Sharp"
+                    src="../../../../public/images/header/Frame 48095401.png"
+                  />
+                </Link>
               </IconButton>
             </Tooltip>
             <Menu
