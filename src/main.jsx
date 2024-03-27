@@ -10,56 +10,58 @@ import Pricing from "./components/pages/Pricing/Pricing.jsx";
 import Contact from "./components/pages/Contact/Contact.jsx";
 import AdminLogin from "./components/pages/AdminLogin/AdminLogin.jsx";
 import DashBoard from "./components/pages/DashBoard/DashBoard.jsx";
+import SinglePost from "./components/pages/DashBoard/SinglePost.jsx";
+import Loading from "./components/pages/DashBoard/Loading.jsx";
 
 //use custom theme...................!
 const theme = createTheme({
   breakpoints: {
-    keys : ["xs", "sm", "md", "lg", "xl"],
+    keys: ["xs", "sm", "md", "lg", "xl"],
   },
   typography: {
     fontFamily: "'Exo 2', sans-serif",
-    color: 'gray'
+    color: "gray",
   },
   p: {
-    color: 'gray',
+    color: "gray",
   },
   img: {
-    width: '100%'
+    width: "100%",
   },
   palette: {
     mode: "light",
     common: {
-      black: '#000',
-      white: '#ffffff'
+      black: "#000",
+      white: "#ffffff",
     },
     primary: {
       main: "#1976d2",
       light: "#42a5f5",
       dark: "#1565c0",
-      contrastText: "#fff"
+      contrastText: "#fff",
     },
     secondary: {
       main: "#9c27b0",
       light: "#ba68c8",
       dark: "#7b1fa2",
-      contrastText: "#fff"
+      contrastText: "#fff",
     },
     error: {
       main: "#d32f2f",
       light: "#ef5350",
       dark: "#c62828",
-      contrastText: "#fff"
+      contrastText: "#fff",
     },
     success: {
       main: "#2e7d32",
       light: "#4caf50",
       dark: "#1b5e20",
-      contrastText: "#fff"
+      contrastText: "#fff",
     },
     text: {
-      primary: 'rgba(0, 0, 0, 0.87)',
-      secondary: 'rgba(0, 0, 0, 0.6)'
-    }
+      primary: "rgba(0, 0, 0, 0.87)",
+      secondary: "rgba(0, 0, 0, 0.6)",
+    },
   },
   // spacing: {
   //   borderRadius: 4
@@ -72,12 +74,12 @@ const theme = createTheme({
     drawer: 1200,
     modal: 1300,
     snackbar: 1400,
-    tooltip: 1500
+    tooltip: 1500,
   },
   images: {
-    height: '51px',
-    width: '51px',
-  }
+    height: "51px",
+    width: "51px",
+  },
 });
 
 //Define all route for the components.........!
@@ -91,31 +93,39 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: '/solution',
-        element: <Solutions></Solutions>
+        path: "/solution",
+        element: <Solutions></Solutions>,
       },
       {
-        path: '/Financial-Services',
-        element: <FinancialServices></FinancialServices>
+        path: "/Financial-Services",
+        element: <FinancialServices></FinancialServices>,
       },
       {
-        path: '/pricing',
-        element: <Pricing></Pricing>
+        path: "/pricing",
+        element: <Pricing></Pricing>,
       },
       {
-        path: '/contact',
-        element: <Contact></Contact>
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
-        path: '/adminLogin',
-        element: <AdminLogin></AdminLogin>
+        path: "/adminLogin",
+        element: <AdminLogin></AdminLogin>,
       },
     ],
   },
   {
-    path: '/dashboard',
-    element: <DashBoard></DashBoard>
-  }
+    path: "/dashboard",
+    element: <DashBoard></DashBoard>,
+  },
+  {
+    path: "/singlePost/:postId",
+    element: (
+      <Loading>
+        <SinglePost />
+      </Loading>
+    ),
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

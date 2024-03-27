@@ -20,13 +20,25 @@ import {
   Avatar,
   Button,
   Card,
-  CardActions,
   CardContent,
   Grid,
   TextField,
 } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
 import Modal from "@mui/material/Modal";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@mui/material";
+import { DataGrid } from "@mui/x-data-grid";
+import SinglePost from "./SinglePost";
+import { useNavigate, useParams } from "react-router-dom";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const drawerWidth = 250;
 
@@ -50,38 +62,24 @@ function ResponsiveDrawer(props) {
     }
   };
 
-  const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "firstName", headerName: "First name", width: 130 },
-    { field: "lastName", headerName: "Last name", width: 130 },
-    {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      width: 90,
-    },
-    {
-      field: "fullName",
-      headerName: "Full name",
-      description: "This column has a value getter and is not sortable.",
-      sortable: false,
-      width: 160,
-      valueGetter: (value, row) =>
-        `${row.firstName || ""} ${row.lastName || ""}`,
-    },
-  ];
+  const [posts, setPosts] = React.useState([]);
+  const navigate = useNavigate();
 
-  const rows = [
-    { id: 1, lastName: "Snow", firstName: "Jon", age: 35 },
-    { id: 2, lastName: "Lannister", firstName: "Cersei", age: 42 },
-    { id: 3, lastName: "Lannister", firstName: "Jaime", age: 45 },
-    { id: 4, lastName: "Stark", firstName: "Arya", age: 16 },
-    { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-    { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-    { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-    { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-    { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-  ];
+  React.useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data));
+  }, []);
+
+  const [openBack, setOpenBack] = React.useState(false);
+  const handleCloseBackDrop = () => {
+    setOpenBack(false);
+  };
+
+  const handlePostView = (id) => {
+    setOpenBack(true);
+    navigate(`/singlePost/${id}`);
+  };
 
   const style = {
     position: "absolute",
@@ -93,9 +91,9 @@ function ResponsiveDrawer(props) {
     border: "2px solid #000",
     boxShadow: 24,
     p: 4,
-    justifyContent: 'center',
-    alignItem: 'center',
-    margin: 'auto'
+    justifyContent: "center",
+    alignItem: "center",
+    margin: "auto",
   };
 
   const drawer = (
@@ -208,17 +206,70 @@ function ResponsiveDrawer(props) {
               </Button>
               <CardContent>
                 <div style={{ height: 400, width: "100%", overflowX: "auto" }}>
-                  <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    initialState={{
-                      pagination: {
-                        paginationModel: { page: 0, pageSize: 5 },
-                      },
-                    }}
-                    pageSizeOptions={[5, 10]}
-                    checkboxSelection
-                  />
+                  <TableContainer component={Paper}>
+                    <Table
+                      sx={{ width: "90%", margin: "auto" }}
+                      aria-label="simple table"
+                    >
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>ID</TableCell>
+                          <TableCell align="right">Title</TableCell>
+                          <TableCell align="right">Body</TableCell>
+                          <TableCell align="right">Age</TableCell>
+                          <TableCell align="right">Action</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {posts.map((row) => (
+                          <TableRow key={row.id}>
+                            <TableCell component="th" scope="row">
+                              {row.id}
+                            </TableCell>
+                            <TableCell align="right">
+                              {row.title.length > 30
+                                ? row.title.substring(0, 20) + "..."
+                                : row.title}
+                            </TableCell>
+                            <TableCell align="right">
+                              {row.body.length > 30
+                                ? row.body.substring(0, 20) + "..."
+                                : row.body}
+                            </TableCell>
+                            <TableCell align="right">{row.userId}</TableCell>
+                            <TableCell>
+                              <Button
+                                size="small"
+                                variant="contained"
+                                color="success"
+                                sx={{ marginRight: "5px" }}
+                                onClick={() => {
+                                  handlePostView(row.id);
+                                }}
+                              >
+                                View
+                              </Button>
+                              <Button
+                                size="small"
+                                variant="contained"
+                                color="warning"
+                                sx={{ marginRight: "5px" }}
+                              >
+                                Edit
+                              </Button>
+                              <Button
+                                size="small"
+                                variant="contained"
+                                color="info"
+                              >
+                                Delete
+                              </Button>
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
                 </div>
               </CardContent>
             </Card>
@@ -236,15 +287,52 @@ function ResponsiveDrawer(props) {
                 <Typography id="modal-modal-title" variant="h6" component="h2">
                   Add New User
                 </Typography>
-                <TextField sx={{marginTop: '16px', width: '100%'}} id="outlined-basic" label="Enter Your Name" variant="outlined" />
-                <TextField sx={{marginTop: '16px', width: '100%'}} id="outlined-basic" label="Enter Your Email" variant="outlined" />
-                <TextField sx={{marginTop: '16px', width: '100%'}} id="outlined-basic" type="password" label="Enter Your Password" variant="outlined" />
-                <TextField sx={{marginTop: '16px', width: '100%'}} id="outlined-basic" type="password" label="Enter Your Confirm Password" variant="outlined" />
-                <Button variant="contained" sx={{marginTop: '10px', backgroundColor: '#00a1a1'}}>Add</Button>
+                <TextField
+                  sx={{ marginTop: "16px", width: "100%" }}
+                  id="outlined-basic"
+                  label="Enter Your Name"
+                  variant="outlined"
+                />
+                <TextField
+                  sx={{ marginTop: "16px", width: "100%" }}
+                  id="outlined-basic"
+                  label="Enter Your Email"
+                  variant="outlined"
+                />
+                <TextField
+                  sx={{ marginTop: "16px", width: "100%" }}
+                  id="outlined-basic"
+                  type="password"
+                  label="Enter Your Password"
+                  variant="outlined"
+                />
+                <TextField
+                  sx={{ marginTop: "16px", width: "100%" }}
+                  id="outlined-basic"
+                  type="password"
+                  label="Enter Your Confirm Password"
+                  variant="outlined"
+                />
+                <Button
+                  variant="contained"
+                  sx={{ marginTop: "10px", backgroundColor: "#00a1a1" }}
+                >
+                  Add
+                </Button>
               </Box>
             </Modal>
           </div>
           {/* modal */}
+
+          {/* BackDrop */}
+          <Backdrop
+            sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={openBack}
+            onClick={handleCloseBackDrop}
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop>
+          {/* BackDrop */}
         </Grid>
       </Box>
     </Box>
