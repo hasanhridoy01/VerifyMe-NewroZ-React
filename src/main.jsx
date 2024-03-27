@@ -116,7 +116,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashBoard></DashBoard>,
+    element: (
+      <Loading>
+        <DashBoard />
+      </Loading>
+    ),
   },
   {
     path: "/singlePost/:postId",
