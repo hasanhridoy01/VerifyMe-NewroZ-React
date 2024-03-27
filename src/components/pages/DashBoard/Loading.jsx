@@ -10,7 +10,7 @@ const Loading = ({ children }) => {
    
     const timer = setTimeout(() => {
       setOpen(false);
-    }, 2000); 
+    }, 1000); 
 
    
     return () => clearTimeout(timer);
@@ -22,7 +22,7 @@ const Loading = ({ children }) => {
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={open}
       >
-        <CircularProgress color="inherit" />
+        <CircularProgress sx={{color: '#00a1a1'}} />
       </Backdrop>
       {/* Render children only when loading is complete */}
       {!open && children}

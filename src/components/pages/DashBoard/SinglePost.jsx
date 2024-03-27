@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -38,6 +38,7 @@ const SinglePost = () => {
                 <Typography variant="h3" gutterBottom>{singlePost.id}</Typography>
                 <Typography variant="h5" gutterBottom>{singlePost.title}</Typography>
                 <Typography variant="h6" gutterBottom>{singlePost.body}</Typography>
+                <Link to='/dashboard'><Button size="large" variant="contained" sx={{marginTop: '7px', backgroundColor: '#00a1a1'}}>Back To DashBoard</Button></Link>
               </CardContent>
             </Card>
           </Grid>

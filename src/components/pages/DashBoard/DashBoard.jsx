@@ -39,8 +39,11 @@ import SinglePost from "./SinglePost";
 import { useNavigate, useParams } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
+import ReactPaginate from "react-paginate";
 
 const drawerWidth = 250;
+
+const postsPerPage = 5;
 
 function ResponsiveDrawer(props) {
   const { window } = props;
@@ -80,6 +83,18 @@ function ResponsiveDrawer(props) {
     setOpenBack(true);
     navigate(`/singlePost/${id}`);
   };
+
+  const [pageNumber, setPageNumber] = React.useState(0);
+
+  const handlePageChange = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
+  const pageCount = Math.ceil(posts.length / postsPerPage);
+  const displayedPosts = posts.slice(
+    pageNumber * postsPerPage,
+    (pageNumber + 1) * postsPerPage
+  );
 
   const style = {
     position: "absolute",
@@ -214,10 +229,10 @@ function ResponsiveDrawer(props) {
                       <TableHead>
                         <TableRow>
                           <TableCell>ID</TableCell>
-                          <TableCell align="right">Title</TableCell>
-                          <TableCell align="right">Body</TableCell>
-                          <TableCell align="right">Age</TableCell>
-                          <TableCell align="right">Action</TableCell>
+                          <TableCell align="center">Title</TableCell>
+                          <TableCell align="center">Body</TableCell>
+                          <TableCell align="center">Age</TableCell>
+                          <TableCell align="center">Action</TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -226,18 +241,18 @@ function ResponsiveDrawer(props) {
                             <TableCell component="th" scope="row">
                               {row.id}
                             </TableCell>
-                            <TableCell align="right">
+                            <TableCell align="center">
                               {row.title.length > 30
                                 ? row.title.substring(0, 20) + "..."
                                 : row.title}
                             </TableCell>
-                            <TableCell align="right">
+                            <TableCell align="center">
                               {row.body.length > 30
                                 ? row.body.substring(0, 20) + "..."
                                 : row.body}
                             </TableCell>
-                            <TableCell align="right">{row.userId}</TableCell>
-                            <TableCell>
+                            <TableCell align="center">{row.userId}</TableCell>
+                            <TableCell align="center">
                               <Button
                                 size="small"
                                 variant="contained"
@@ -270,6 +285,14 @@ function ResponsiveDrawer(props) {
                       </TableBody>
                     </Table>
                   </TableContainer>
+                  <ReactPaginate
+                    pageCount={pageCount}
+                    pageRangeDisplayed={5}
+                    marginPagesDisplayed={2}
+                    onPageChange={handlePageChange}
+                    containerClassName={"pagination"}
+                    activeClassName={"active"}
+                  />
                 </div>
               </CardContent>
             </Card>
