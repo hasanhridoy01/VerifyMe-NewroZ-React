@@ -36,7 +36,7 @@ import {
 } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import SinglePost from "./SinglePost";
-import { useNavigate, useParams } from "react-router-dom";
+import { Form, useNavigate, useParams } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import ReactPaginate from "react-paginate";
@@ -49,6 +49,7 @@ function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
+  const [viewPost, setViewPost] = React.useState({});
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -73,11 +74,6 @@ function ResponsiveDrawer(props) {
       .then((res) => res.json())
       .then((data) => setPosts(data));
   }, []);
-
-  const [openBack, setOpenBack] = React.useState(false);
-  const handleCloseBackDrop = () => {
-    setOpenBack(false);
-  };
 
   const handlePostView = (id) => {
     setOpenBack(true);
@@ -111,6 +107,121 @@ function ResponsiveDrawer(props) {
     margin: "auto",
   };
 
+  //add post modal................!
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  //update post modal................!
+  const [Update, setUpdate] = React.useState(false);
+  const handleOpenUpdate = () => setUpdate(true);
+  const handleCloseUpdate = () => setUpdate(false);
+
+  //Handle add post Form Submit..................!
+  const handleForm = (e) => {
+    //validation with form...............!
+    if (!e.target.title.value) {
+      alert("Please fill in the title field...!");
+    } else if (!e.target.body.value) {
+      alert("Please fill in the body field...!");
+    } else if (!e.target.id.value) {
+      alert("Please fill in the id field...!");
+    }
+    //get value with form...............!
+    const title = e.target.title.value;
+    const body = e.target.body.value;
+    const id = e.target.id.value;
+
+    //user data....................!
+    const post = [title, body, id];
+
+    try {
+      fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        body: JSON.stringify(post),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+      setOpen(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //Handle Update Post find by Id...............!
+  const handleUpdatePost = (id) => {
+    const fetchPost = async () => {
+      try {
+        const response = await fetch(
+          `https://jsonplaceholder.typicode.com/posts/${id}`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch post");
+        }
+        const singlePost = await response.json();
+        setViewPost(singlePost);
+        console.log(singlePost);
+      } catch (error) {
+        console.error("Error fetching post:", error);
+      }
+    };
+
+    fetchPost();
+  };
+
+  const [viewUpdatePost, setViewUpdatePost] = React.useState({ title: "", body: "", id: "" });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setViewUpdatePost({ ...viewUpdatePost, [name]: value });
+  };
+
+  //Handle Update a Post..............!
+  const handleUpdateForm = async (e) => {
+    console.log("Updated post:", viewUpdatePost);
+    try {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${viewUpdatePost.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(viewUpdatePost),
+      });
+
+      if (response.ok) {
+        console.log("Post updated successfully");
+      } else {
+        console.error("Failed to update post");
+      }
+    } catch (error) {
+      console.error("Error updating post:", error);
+    }
+    setUpdate(false)
+  }
+
+  //Handle Post Deleted..............!
+  const handlePostDelete = async(id) => {
+    try {
+      if(id){
+        alert('are you delete this post?')
+      }
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        console.log("Post deleted successfully");
+      } else {
+        console.error("Failed to delete post");
+      }
+    } catch (error) {
+      console.error("Error deleting post:", error);
+    }
+  }
+
   const drawer = (
     <div>
       <Toolbar />
@@ -130,9 +241,26 @@ function ResponsiveDrawer(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [openBack, setOpenBack] = React.useState(false);
+
+  const handleCloseBackDrop = () => {
+    setOpenBack(false);
+  };
+
+  React.useEffect(() => {
+    let timer;
+    if (openBack) {
+      timer = setTimeout(() => {
+        setOpenBack(false);
+      }, 1000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [openBack]);
+
+  const handleOpenBackDrop = () => {
+    setOpenBack(true);
+  };
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -269,10 +397,16 @@ function ResponsiveDrawer(props) {
                                 variant="contained"
                                 color="warning"
                                 sx={{ marginRight: "5px" }}
+                                onClick={() => {
+                                  handleOpenUpdate(), handleUpdatePost(row.id);
+                                }}
                               >
                                 Edit
                               </Button>
                               <Button
+                                onClick={() => {
+                                  handlePostDelete(row.id)
+                                }}
                                 size="small"
                                 variant="contained"
                                 color="info"
@@ -298,7 +432,7 @@ function ResponsiveDrawer(props) {
             </Card>
           </Grid>
 
-          {/* modal */}
+          {/* add post modal */}
           <div>
             <Modal
               open={open}
@@ -308,44 +442,101 @@ function ResponsiveDrawer(props) {
             >
               <Box sx={style}>
                 <Typography id="modal-modal-title" variant="h6" component="h2">
-                  Add New User
+                  Add New Post
                 </Typography>
-                <TextField
-                  sx={{ marginTop: "16px", width: "100%" }}
-                  id="outlined-basic"
-                  label="Enter Your Name"
-                  variant="outlined"
-                />
-                <TextField
-                  sx={{ marginTop: "16px", width: "100%" }}
-                  id="outlined-basic"
-                  label="Enter Your Email"
-                  variant="outlined"
-                />
-                <TextField
-                  sx={{ marginTop: "16px", width: "100%" }}
-                  id="outlined-basic"
-                  type="password"
-                  label="Enter Your Password"
-                  variant="outlined"
-                />
-                <TextField
-                  sx={{ marginTop: "16px", width: "100%" }}
-                  id="outlined-basic"
-                  type="password"
-                  label="Enter Your Confirm Password"
-                  variant="outlined"
-                />
-                <Button
-                  variant="contained"
-                  sx={{ marginTop: "10px", backgroundColor: "#00a1a1" }}
-                >
-                  Add
-                </Button>
+                <Form onSubmit={handleForm}>
+                  <TextField
+                    sx={{ marginTop: "16px", width: "100%" }}
+                    id="outlined-basic"
+                    label="Enter Your Name"
+                    name="title"
+                    variant="outlined"
+                  />
+                  <TextField
+                    sx={{ marginTop: "16px", width: "100%" }}
+                    id="outlined-basic"
+                    label="Enter Your body"
+                    name="body"
+                    variant="outlined"
+                  />
+                  <TextField
+                    sx={{ marginTop: "16px", width: "100%" }}
+                    id="outlined-basic"
+                    type="number"
+                    name="id"
+                    label="Enter Your ID"
+                    variant="outlined"
+                  />
+                  <Button
+                    onClick={handleOpenBackDrop}
+                    variant="contained"
+                    type="submit"
+                    sx={{ marginTop: "10px", backgroundColor: "#00a1a1" }}
+                  >
+                    Add
+                  </Button>
+                </Form>
               </Box>
             </Modal>
           </div>
-          {/* modal */}
+          {/* add post modal */}
+
+          {/* update post modal */}
+          <div>
+            <Modal
+              open={Update}
+              onClose={handleCloseUpdate}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                  Update A Post
+                </Typography>
+                <Form onSubmit={handleUpdateForm}>
+                  <TextField
+                    sx={{ marginTop: "16px", width: "100%" }}
+                    id="outlined-basic"
+                    label=""
+                    name="title"
+                    variant="outlined"
+                    value={viewUpdatePost.title}
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    sx={{ marginTop: "16px", width: "100%" }}
+                    id="outlined-basic"
+                    label=""
+                    name="body"
+                    variant="outlined"
+                    value={viewUpdatePost.body}
+                    onChange={handleChange}
+                  />
+                  <TextField
+                    sx={{ marginTop: "16px", width: "100%" }}
+                    id="outlined-basic"
+                    type="number"
+                    name="id"
+                    label=""
+                    variant="outlined"
+                    value={viewUpdatePost.id}
+                    onChange={handleChange}
+                  />
+                  <Button
+                    onClick={() => {
+                      handleOpenBackDrop()
+                    }}
+                    variant="contained"
+                    type="submit"
+                    sx={{ marginTop: "10px", backgroundColor: "#00a1a1" }}
+                  >
+                    Update
+                  </Button>
+                </Form>
+              </Box>
+            </Modal>
+          </div>
+          {/* update post modal */}
 
           {/* BackDrop */}
           <Backdrop
