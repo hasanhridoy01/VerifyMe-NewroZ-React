@@ -40,6 +40,7 @@ import { Form, useNavigate, useParams } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import ReactPaginate from "react-paginate";
+import { LoadingButton } from "@mui/lab";
 
 const drawerWidth = 250;
 
@@ -116,6 +117,7 @@ function ResponsiveDrawer(props) {
   const [Update, setUpdate] = React.useState(false);
   const handleOpenUpdate = () => setUpdate(true);
   const handleCloseUpdate = () => setUpdate(false);
+  const [loading, setLoading] = React.useState(false);
 
   //Handle add post Form Submit..................!
   const handleForm = (e) => {
@@ -145,7 +147,12 @@ function ResponsiveDrawer(props) {
       })
         .then((response) => response.json())
         .then((json) => console.log(json));
-      setOpen(false);
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        setOpen(false);
+        setOpenBack(true);
+      }, 2000);
     } catch (error) {
       console.log(error);
     }
@@ -172,7 +179,11 @@ function ResponsiveDrawer(props) {
     fetchPost();
   };
 
-  const [viewUpdatePost, setViewUpdatePost] = React.useState({ title: "", body: "", id: "" });
+  const [viewUpdatePost, setViewUpdatePost] = React.useState({
+    title: "",
+    body: "",
+    id: "",
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -183,13 +194,16 @@ function ResponsiveDrawer(props) {
   const handleUpdateForm = async (e) => {
     console.log("Updated post:", viewUpdatePost);
     try {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${viewUpdatePost.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(viewUpdatePost),
-      });
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${viewUpdatePost.id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(viewUpdatePost),
+        }
+      );
 
       if (response.ok) {
         console.log("Post updated successfully");
@@ -199,18 +213,21 @@ function ResponsiveDrawer(props) {
     } catch (error) {
       console.error("Error updating post:", error);
     }
-    setUpdate(false)
-  }
+    setUpdate(false);
+  };
 
   //Handle Post Deleted..............!
-  const handlePostDelete = async(id) => {
+  const handlePostDelete = async (id) => {
     try {
-      if(id){
-        alert('are you delete this post?')
+      if (id) {
+        alert("are you delete this post?");
       }
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (response.ok) {
         console.log("Post deleted successfully");
@@ -220,7 +237,7 @@ function ResponsiveDrawer(props) {
     } catch (error) {
       console.error("Error deleting post:", error);
     }
-  }
+  };
 
   const drawer = (
     <div>
@@ -259,7 +276,7 @@ function ResponsiveDrawer(props) {
   }, [openBack]);
 
   const handleOpenBackDrop = () => {
-    setOpenBack(true);
+    
   };
 
   return (
@@ -405,7 +422,7 @@ function ResponsiveDrawer(props) {
                               </Button>
                               <Button
                                 onClick={() => {
-                                  handlePostDelete(row.id)
+                                  handlePostDelete(row.id);
                                 }}
                                 size="small"
                                 variant="contained"
@@ -467,14 +484,16 @@ function ResponsiveDrawer(props) {
                     label="Enter Your ID"
                     variant="outlined"
                   />
-                  <Button
+                  <LoadingButton
                     onClick={handleOpenBackDrop}
                     variant="contained"
                     type="submit"
                     sx={{ marginTop: "10px", backgroundColor: "#00a1a1" }}
+                    loading={loading}
+                    loadingIndicator={<CircularProgress size={24} />}
                   >
                     Add
-                  </Button>
+                  </LoadingButton>
                 </Form>
               </Box>
             </Modal>
@@ -524,7 +543,7 @@ function ResponsiveDrawer(props) {
                   />
                   <Button
                     onClick={() => {
-                      handleOpenBackDrop()
+                      handleOpenBackDrop();
                     }}
                     variant="contained"
                     type="submit"
