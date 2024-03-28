@@ -41,6 +41,7 @@ import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import ReactPaginate from "react-paginate";
 import { LoadingButton } from "@mui/lab";
+import axios from "axios";
 
 const drawerWidth = 250;
 
@@ -71,9 +72,14 @@ function ResponsiveDrawer(props) {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((res) => res.json())
-      .then((data) => setPosts(data));
+    axios
+      .get("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => {
+        setPosts(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching posts:", error);
+      });
   }, []);
 
   const handlePostView = (id) => {
@@ -138,23 +144,26 @@ function ResponsiveDrawer(props) {
     const post = [title, body, id];
 
     try {
-      fetch("https://jsonplaceholder.typicode.com/posts", {
-        method: "POST",
-        body: JSON.stringify(post),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
-      setLoading(true);
-      setTimeout(() => {
-        setLoading(false);
-        setOpen(false);
-        setOpenBack(true);
-      }, 2000);
+      axios
+        .post("https://jsonplaceholder.typicode.com/posts", post, {
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+        .then((response) => {
+          console.log(response.data);
+          setLoading(true);
+          setTimeout(() => {
+            setLoading(false);
+            setOpen(false);
+            setOpenBack(true);
+          }, 2000);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
     } catch (error) {
-      console.log(error);
+      console.error("Error:", error);
     }
   };
 
@@ -162,13 +171,13 @@ function ResponsiveDrawer(props) {
   const handleUpdatePost = (id) => {
     const fetchPost = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           `https://jsonplaceholder.typicode.com/posts/${id}`
         );
-        if (!response.ok) {
+        if (!response.status === 200) {
           throw new Error("Failed to fetch post");
         }
-        const singlePost = await response.json();
+        const singlePost = response.data;
         setViewPost(singlePost);
         console.log(singlePost);
       } catch (error) {
@@ -194,18 +203,17 @@ function ResponsiveDrawer(props) {
   const handleUpdateForm = async (e) => {
     console.log("Updated post:", viewUpdatePost);
     try {
-      const response = await fetch(
+      const response = await axios.patch(
         `https://jsonplaceholder.typicode.com/posts/${viewUpdatePost.id}`,
+        viewUpdatePost,
         {
-          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(viewUpdatePost),
         }
       );
 
-      if (response.ok) {
+      if (response.status === 200) {
         console.log("Post updated successfully");
       } else {
         console.error("Failed to update post");
@@ -220,16 +228,14 @@ function ResponsiveDrawer(props) {
   const handlePostDelete = async (id) => {
     try {
       if (id) {
-        alert("are you delete this post?");
+        alert("Are you sure you want to delete this post?");
       }
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${id}`,
-        {
-          method: "DELETE",
-        }
+
+      const response = await axios.delete(
+        `https://jsonplaceholder.typicode.com/posts/${id}`
       );
 
-      if (response.ok) {
+      if (response.status === 200) {
         console.log("Post deleted successfully");
       } else {
         console.error("Failed to delete post");
@@ -275,9 +281,7 @@ function ResponsiveDrawer(props) {
     return () => clearTimeout(timer);
   }, [openBack]);
 
-  const handleOpenBackDrop = () => {
-    
-  };
+  const handleOpenBackDrop = () => {};
 
   return (
     <Box sx={{ display: "flex" }}>
