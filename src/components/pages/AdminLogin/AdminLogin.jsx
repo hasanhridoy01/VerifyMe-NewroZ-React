@@ -17,27 +17,42 @@ import "./AdminLogin.css";
 import { Form, Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../../Firebase/firebase.init";
-
-const handleSignInSubmit = (e) => {
-  e.preventDefault();
-  
-  //get value for form.......!
-  const email = e.target.email.value;
-  const password = e.target.password.value;
-  
-  //Sign Up with a new user...................!
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
-  });
-}
+import { useState } from "react";
 
 const AdminLogin = () => {
+  const navigate = useNavigate();
+  const [error, setError] = useState();
+  const [success, setSuccess] = useState();
+
+  const handleSignInSubmit = (e) => {
+    e.preventDefault();
+
+    //get value for form.......!
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    //password validation.............!
+    if (password.length < 6) {
+      alert("Password should be at least 6 characters.!");
+    }
+
+    //reset State.................!
+    setSuccess("");
+    setError("");
+
+    //Sign Up with a new user...........................!
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setSuccess("user created successFull@!");
+        user ? navigate("/dashboard") : navigate("/adminLogin");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setError(errorCode, errorMessage);
+      });
+  };
   return (
     <div>
       <Container sx={{ marginTop: "130px" }}>
@@ -65,6 +80,30 @@ const AdminLogin = () => {
                 <Typography variant="h5" gutterBottom mt={3} mb={5}>
                   Sign-In to continue
                 </Typography>
+
+                {error && (
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    mt={3}
+                    mb={5}
+                    sx={{ color: "red" }}
+                  >
+                    {error}
+                  </Typography>
+                )}
+
+                {success && (
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    mt={3}
+                    mb={5}
+                    sx={{ color: "green" }}
+                  >
+                    {success}
+                  </Typography>
+                )}
 
                 <Form onSubmit={handleSignInSubmit}>
                   <Box mb={3}>
